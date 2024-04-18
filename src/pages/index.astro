@@ -1,0 +1,209 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Title from "../components/Title.astro";
+import Anchord from "../components/Anchord.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import Slider from "../components/Slider.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <Header />
+    <main>
+      <!-- HOME -->
+      <section id="home" class="min-h-screen pb-[50px]">
+        <div
+          class="min-h-screen relative flex flex-column justify-center items-end home-div"
+        >
+          <div
+            class="flex flex-col bg-white/90 absolute bottom-[-100px] rounded-sm md:rounded-lg py-10 items-center text-center"
+          >
+            <Title title="¡Sonrie con confianza!" />
+            <p class="px-8 md:max-w-[800px] pt-5">
+              En nuestra clínica dental, ofrecemos un cuidado personalizado para
+              mantener tus dientes sanos y tu sonrisa radiante
+            </p>
+            <nav class="flex flex-col gap-1 mt-8">
+              <Anchord text="Contactar" variant="primary" href="#contacto" />
+              <Anchord text="Saber mas" variant="secondary" href="#servicios" />
+            </nav>
+          </div>
+        </div>
+      </section>
+      <!-- SOBRE NOSOTROS - ABOUT US -->
+      <section
+        id="about"
+        class="flex flex-col mt-[100px] items-center text-center pb-[120px]"
+      >
+        <Title title="Sobre nosotros" />
+        <p class="px-10 mt-10 text-center max-w-[700px]">
+          En <span class="font-medium">Clinica Serranos</span> somos tu destino para
+          una sonrisa
+          <span class="font-medium">saludable y radiante.</span> Con un equipo profesional
+          y tecnología avanzada, te ofrecemos atención dental de alta calidad y un
+          ambiente acogedor.
+        </p>
+        <p class="px-10 mt-5 text-center mb-10 max-w-[700px]">
+          Desde <span class="font-medium"
+            >limpiezas hasta tratamientos especializados,</span
+          > estamos aquí para cuidar de ti. Confía en Clínica Serranos para lograr
+          tu mejor sonrisa.
+        </p>
+        <Slider client:visible />
+      </section>
+      <!-- DIVIDER -->
+      <section
+        class="flex flex-col items-center justify-center gap-2 py-8 bg-slate-200"
+      >
+        <h2 class="font-bold text-2xl">Una sonrisa</h2>
+        <p>Es lo mas bonito que puedes ponerte</p>
+        <span class="font-bold text-3xl rotate-90">:)</span>
+      </section>
+      <!-- SERVICIOS - SERVICES -->
+      <section
+        id="servicios"
+        class="pt-[100px] flex flex-col items-center pb-[6rem]"
+      >
+        <Title title="Nuestros servicios" />
+        <p class="text-center px-8 py-5 md:max-w-[800px]">
+          En nuestra clínica dental, ofrecemos un cuidado personalizado para
+          mantener tus dientes sanos y tu sonrisa radiante
+        </p>
+        <!-- TARJETAS DE SERVICIOS -->
+        <div
+          class="flex flex-wrap gap-3 justify-center max-w-[1024px] items-center"
+        >
+          <ServiceCard
+            title="Blanqueamiento Dental"
+            description="Nuestro tratamiento de blanqueamiento dental elimina manchas y decoloraciones, dejando tus dientes con un blanco deslumbrante y una sonrisa radiante que te hará destacar en cualquier lugar."
+          />
+          <ServiceCard
+            title="Blanqueamiento Dental"
+            description="Nuestro tratamiento de blanqueamiento dental elimina manchas y decoloraciones, dejando tus dientes con un blanco deslumbrante y una sonrisa radiante que te hará destacar en cualquier lugar."
+          />
+          <ServiceCard
+            title="Blanqueamiento Dental"
+            description="Nuestro tratamiento de blanqueamiento dental elimina manchas y decoloraciones, dejando tus dientes con un blanco deslumbrante y una sonrisa radiante que te hará destacar en cualquier lugar."
+          />
+          <ServiceCard
+            title="Blanqueamiento Dental"
+            description="Nuestro tratamiento de blanqueamiento dental elimina manchas y decoloraciones, dejando tus dientes con un blanco deslumbrante y una sonrisa radiante que te hará destacar en cualquier lugar."
+          />
+          <ServiceCard
+            title="Blanqueamiento Dental"
+            description="Nuestro tratamiento de blanqueamiento dental elimina manchas y decoloraciones, dejando tus dientes con un blanco deslumbrante y una sonrisa radiante que te hará destacar en cualquier lugar."
+          />
+          <ServiceCard
+            title="Blanqueamiento Dental"
+            description="Nuestro tratamiento de blanqueamiento dental elimina manchas y decoloraciones, dejando tus dientes con un blanco deslumbrante y una sonrisa radiante que te hará destacar en cualquier lugar."
+          />
+        </div>
+      </section>
+      <!-- FLUJO DE TRABAJO - WORKFLOW -->
+      <section id="work-flow text-center min-h-screen">
+        <div class="bg-blue-300 w-full h-[50px]"></div>
+        <div class="text-center flex flex-col gap-10 py-14 md:py-20">
+          <h3 class="font-bold text-2xl">Flujo de trabajo 100% digital</h3>
+          <p class="px-10 md:max-w-[600px] mx-auto">
+            Experimente nuestro innovador flujo de trabajo totalmente digital en
+            nuestra clínica dental.
+          </p>
+          <p class="px-10 font-medium md:max-w-[600px] mx-auto">
+            La sonrisa de tus sueños hecha realidad con tecnología de vanguardia
+          </p>
+          <div class="bg-blue-300 w-full py-4 text-white">
+            <p class="uppercase md:text-xl">tu sonrisa perfecta</p>
+            <span class="font-bold uppercase md:text-xl">lista en el dia</span>
+          </div>
+        </div>
+      </section>
+      <!-- WORK EXAMPLES -->
+      <section
+        id="work-examples"
+        class="flex flex-col bg-blue-400 text-white pt-14 items-center"
+      >
+        <Title
+          lightMode={true}
+          extraClasses="p-10"
+          title="Te mostramos resultados de nuestros pacientes"
+        />
+        <p class="text-center pb-10 px-10">
+          En la Clínica Dental Serrano estudiamos cada caso de manera
+          personalizada, con el objetivo de conseguir los mejores resultados en
+          cada tratamiento.
+        </p>
+        <div class="flex">
+          <div class="rounded-[20px] bg-white flex flex-col mx-3">
+            <img
+              class="h-[300px] rounded-[20px] object-cover w-full"
+              src="https://epichotelsanluis.com/wp-content/uploads/2022/11/placeholder.png"
+              alt=""
+            />
+            <div class="p-5">
+              <h3 class="font-medium text-gray-800 pb-2">
+                Nombre del procedimiento
+              </h3>
+              <p class="text-gray-800 text-sm pb-4">
+                Pequeño story telling sobre lo que han realizado en el paciente
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="h-[40vh] mb-10 flex text-center items-center justify-center flex-col"
+        >
+          <p class="text-xl font-bold">¿Quieres ver más resultados?</p>
+          <a
+            href="#"
+            class="rounded-full border-white border-2 mt-5 py-2 px-3 text-center uppercase"
+            >siguenos en instagram</a
+          >
+        </div>
+        <div
+          class="py-14 md:py-20 w-full flex text-center items-center justify-center flex-col bg-gray-400"
+        >
+          <h2 class="font-bold text-2xl px-12">
+            Primer visita y diagnostico sin coste
+          </h2>
+          <button
+            class="rounded-full bg-blue-500 uppercase font-medium px-12 my-7 py-2"
+            >CONTACTAR</button
+          >
+          <span class="font-bold text-4xl rotate-90">:)</span>
+        </div>
+      </section>
+      <!-- CONTACTO -->
+      <section class="pt-20">
+        <Title extraClasses="mb-10 px-10" title="¿Que estas esperando?" />
+        <p class="text-center mb-5 px-10 md:max-w-[600px] mx-auto">
+          No permitas que el miedo o la indecisión te impidan alcanzar la
+          sonrisa que siempre has deseado.
+        </p>
+        <p class="font-bold text-md text-center px-10 md:max-w-[700px] mx-auto">
+          ¡Contáctanos hoy mismo para programar una consulta y dar el primer
+          paso hacia una sonrisa más saludable y hermosa!
+        </p>
+        <div class="flex justify-center mt-10 px-10">
+          <i>INSTAGRAM</i>
+          <i>WHATSAPP</i>
+        </div>
+        <div class="bg-blue-400 h-full pb-20 rounded-t-[25px]">
+          <div
+            class="h-[330px] md:h-[500px] rounded-[25px] bg-gray-600 mt-20 flex justify-center items-center"
+          >
+            MAP
+          </div>
+        </div>
+      </section>
+    </main>
+  </main>
+</Layout>
+
+<style>
+  .home-div {
+    background-image: url("../../public/home.JPG");
+    background-size: cover;
+    background-position: center;
+  }
+</style>

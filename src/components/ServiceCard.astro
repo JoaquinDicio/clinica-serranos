@@ -1,0 +1,17 @@
+---
+const { title, description } = Astro.props;
+---
+
+<div
+  class="flex items-center flex-col mt-10 rounded-md bg-slate-200 max-w-[320px] overflow-hidden"
+>
+  <img
+    class="w-full min-h-[270px] object-cover"
+    src="https://epichotelsanluis.com/wp-content/uploads/2022/11/placeholder.png"
+    alt="Procedimiento dental"
+  />
+  <div class="pt-3 pb-10">
+    <h3 class="uppercase text-center font-medium pt-7 pb-5">{title}</h3>
+    <p class="text-center max-w-[320px] px-4">{description}</p>
+  </div>
+</div>
