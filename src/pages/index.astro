@@ -5,6 +5,7 @@ import Title from "../components/Title.astro";
 import Anchord from "../components/Anchord.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import Slider from "../components/Slider.astro";
+import ProceduresSlider from "../components/ProceduresSlider.astro";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -50,15 +51,17 @@ import Slider from "../components/Slider.astro";
           > estamos aquí para cuidar de ti. Confía en Clínica Serranos para lograr
           tu mejor sonrisa.
         </p>
-        <Slider client:visible />
+        <Slider />
       </section>
       <!-- DIVIDER -->
-      <section
-        class="flex flex-col items-center justify-center gap-2 py-8 bg-slate-200"
-      >
-        <h2 class="font-bold text-2xl">Una sonrisa</h2>
-        <p>Es lo mas bonito que puedes ponerte</p>
-        <span class="font-bold text-3xl rotate-90">:)</span>
+      <section class="bg-cover bg-center bg-[url('../public/sonrisa.jpg')]">
+        <div
+          class="flex flex-col gap-2 py-8 md:py-12 text-white items-center justify-center bg-[#0C1F2D]/70"
+        >
+          <h2 class="font-bold text-2xl">Una sonrisa</h2>
+          <p>Es lo mas bonito que puedes ponerte</p>
+          <span class="font-bold text-3xl rotate-90">:)</span>
+        </div>
       </section>
       <!-- SERVICIOS - SERVICES -->
       <section
@@ -67,32 +70,33 @@ import Slider from "../components/Slider.astro";
       >
         <Title title="Nuestros servicios" />
         <p class="text-center px-8 py-5 md:max-w-[800px]">
-          En nuestra clínica dental, ofrecemos un cuidado personalizado para
-          mantener tus dientes sanos y tu sonrisa radiante
+          En nuestra clínica dental, nos enorgullece ofrecer un cuidado dental
+          personalizado, diseñado para mantener tus dientes en óptimas
+          condiciones y tu sonrisa brillante en todo momento.
         </p>
         <!-- TARJETAS DE SERVICIOS -->
         <div
           class="flex flex-wrap gap-3 justify-center max-w-[1024px] items-center"
         >
           <ServiceCard
-            title="Blanqueamiento Dental"
-            description="Nuestro tratamiento de blanqueamiento dental elimina manchas y decoloraciones, dejando tus dientes con un blanco deslumbrante y una sonrisa radiante que te hará destacar en cualquier lugar."
+            title="Carillas ceramicas"
+            description="¡Transforma tu sonrisa en una obra maestra! Nuestras carillas cerámicas de alta calidad ocultan defectos como manchas, fracturas y desalineaciones, dando a tus dientes una apariencia impecable y digna de una estrella de cine."
           />
           <ServiceCard
-            title="Blanqueamiento Dental"
-            description="Nuestro tratamiento de blanqueamiento dental elimina manchas y decoloraciones, dejando tus dientes con un blanco deslumbrante y una sonrisa radiante que te hará destacar en cualquier lugar."
+            title="Alineadores dentales"
+            description="Nuestros alineadores dentales transparentes enderezan tus dientes de manera discreta y cómoda, sin necesidad de los molestos brackets metálicos."
           />
           <ServiceCard
-            title="Blanqueamiento Dental"
-            description="Nuestro tratamiento de blanqueamiento dental elimina manchas y decoloraciones, dejando tus dientes con un blanco deslumbrante y una sonrisa radiante que te hará destacar en cualquier lugar."
+            title="Implantes dentales"
+            description="Con nuestros implantes dentales, puedes decir adiós a los espacios vacíos y disfrutar de una sonrisa perfecta y funcional que te devolverá la confianza en ti mismo.|"
           />
           <ServiceCard
-            title="Blanqueamiento Dental"
-            description="Nuestro tratamiento de blanqueamiento dental elimina manchas y decoloraciones, dejando tus dientes con un blanco deslumbrante y una sonrisa radiante que te hará destacar en cualquier lugar."
+            title="Regeneracion osea"
+            description="Nuestros procedimientos de regeneración ósea restauran y fortalecen el tejido óseo perdido o dañado, asegurando una base estable y duradera para cualquier tratamiento dental futuro. "
           />
           <ServiceCard
-            title="Blanqueamiento Dental"
-            description="Nuestro tratamiento de blanqueamiento dental elimina manchas y decoloraciones, dejando tus dientes con un blanco deslumbrante y una sonrisa radiante que te hará destacar en cualquier lugar."
+            title="Rehabilitacion adhesiva"
+            description="¡Restaura la belleza y la funcionalidad de tus dientes de forma rápida y sin complicaciones! Con nuestra rehabilitación adhesiva, tus dientes recuperarán su forma y color natural, ¡y estarás listo para brillar en cualquier ocasión!"
           />
           <ServiceCard
             title="Blanqueamiento Dental"
@@ -101,20 +105,25 @@ import Slider from "../components/Slider.astro";
         </div>
       </section>
       <!-- FLUJO DE TRABAJO - WORKFLOW -->
-      <section id="work-flow text-center min-h-screen">
-        <div class="bg-blue-300 w-full h-[50px]"></div>
-        <div class="text-center flex flex-col gap-10 py-14 md:py-20">
-          <h3 class="font-bold text-2xl">Flujo de trabajo 100% digital</h3>
-          <p class="px-10 md:max-w-[600px] mx-auto">
+      <section
+        id="work-flow"
+        class="bg-[url('/trabajo-precision.jpg')] text-center bg-cover bg-center m-0"
+      >
+        <div class="bg-[#62A1FE]/70 w-full h-[70px]"></div>
+        <div
+          class="text-center flex flex-col text-white gap-10 py-16 md:py-20 bg-black/70"
+        >
+          <h3 class="font-medium text-2xl">Flujo de trabajo 100% digital</h3>
+          <p class="px-10 md:max-w-[550px] mx-auto">
             Experimente nuestro innovador flujo de trabajo totalmente digital en
             nuestra clínica dental.
           </p>
-          <p class="px-10 font-medium md:max-w-[600px] mx-auto">
+          <p class="px-10 font-medium md:max-w-[550px] mx-auto">
             La sonrisa de tus sueños hecha realidad con tecnología de vanguardia
           </p>
-          <div class="bg-blue-300 w-full py-4 text-white">
-            <p class="uppercase md:text-xl">tu sonrisa perfecta</p>
-            <span class="font-bold uppercase md:text-xl">lista en el dia</span>
+          <div class="bg-[#1E79FE]/70 w-full py-4 text-white">
+            <p class="uppercase md:text-xl">el diseño de tu sonrisa</p>
+            <span class="font-bold uppercase md:text-xl">listo en el dia</span>
           </div>
         </div>
       </section>
@@ -128,28 +137,12 @@ import Slider from "../components/Slider.astro";
           extraClasses="p-10"
           title="Te mostramos resultados de nuestros pacientes"
         />
-        <p class="text-center pb-10 px-10">
+        <p class="text-center pb-10 px-10 max-w-[650px]">
           En la Clínica Dental Serrano estudiamos cada caso de manera
           personalizada, con el objetivo de conseguir los mejores resultados en
           cada tratamiento.
         </p>
-        <div class="flex">
-          <div class="rounded-[20px] bg-white flex flex-col mx-3">
-            <img
-              class="h-[300px] rounded-[20px] object-cover w-full"
-              src="https://epichotelsanluis.com/wp-content/uploads/2022/11/placeholder.png"
-              alt=""
-            />
-            <div class="p-5">
-              <h3 class="font-medium text-gray-800 pb-2">
-                Nombre del procedimiento
-              </h3>
-              <p class="text-gray-800 text-sm pb-4">
-                Pequeño story telling sobre lo que han realizado en el paciente
-              </p>
-            </div>
-          </div>
-        </div>
+        <ProceduresSlider />
         <div
           class="h-[40vh] mb-10 flex text-center items-center justify-center flex-col"
         >

@@ -1,28 +1,29 @@
 ---
-import { Image } from "astro:assets";
-import slider1 from "../assets/silla-clinica.jpg";
-import slider2 from "../assets/sobre-nosotros.jpg";
-import slider3 from "../assets/trabajo-precision.jpg";
-import slider4 from "../assets/sala-de-espera.jpg";
+import ProcedurePost from "./ProcedurePost.astro";
 ---
 
 <!-- Swiper -->
 <div class="swiper mySwiper">
   <div class="swiper-wrapper">
     <div class="swiper-slide">
-      <Image alt="Silla de dentista moderna" src={slider1} />
+      <ProcedurePost
+        title="Procedimiento"
+        description="Una descripcion del procedimiento realizado"
+      />
     </div>
     <div class="swiper-slide">
-      <Image alt="Silla de dentista moderna" src={slider2} />
+      <ProcedurePost
+        title="Procedimiento"
+        description="Una descripcion del procedimiento realizado"
+      />
     </div>
     <div class="swiper-slide">
-      <Image alt="Silla de dentista moderna" src={slider3} />
-    </div>
-    <div class="swiper-slide">
-      <Image alt="Silla de dentista moderna" src={slider4} />
+      <ProcedurePost
+        title="Procedimiento"
+        description="Una descripcion del procedimiento realizado"
+      />
     </div>
   </div>
-  <div class="swiper-pagination"></div>
 </div>
 
 <!-- Initialize Swiper -->
@@ -33,9 +34,6 @@ import slider4 from "../assets/sala-de-espera.jpg";
   var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 10,
-    pagination: {
-      el: ".swiper-pagination",
-    },
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
@@ -63,7 +61,7 @@ import slider4 from "../assets/sala-de-espera.jpg";
     margin-top: 70px;
     height: 100%;
     background: transparent;
-    padding: 0;
+    padding: 0 30px;
   }
 
   .swiper {
@@ -75,8 +73,7 @@ import slider4 from "../assets/sala-de-espera.jpg";
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: black;
-    height: 350px;
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
