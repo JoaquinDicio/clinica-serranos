@@ -13,6 +13,7 @@ const { title } = Astro.props;
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <!-- swiper css -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -21,6 +22,9 @@ const { title } = Astro.props;
   </head>
   <body>
     <slot />
+    <script
+      src="https://kit.fontawesome.com/759a8eedd2.js"
+      crossorigin="anonymous"></script>
   </body>
 </html>
 <style is:global>

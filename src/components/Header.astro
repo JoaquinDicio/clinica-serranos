@@ -1,13 +1,15 @@
 <header
   class="p-5 shadow-md fixed top-0 z-10 w-full bg-white/90 flex justify-between items-center flex-wrap"
 >
-  <h1 class="text-2xl">Clinica Dental Serranos</h1>
-  <button
-    id="showMenuBtn"
-    class="bg-black text-white rounded-md px-2 py-1 md:hidden">Menu</button
-  >
+  <h1 class="text-xl">Clinica Dental Serranos</h1>
+  <div class="md:hidden">
+    <i
+      id="showMenuBtn"
+      class="text-[var(--main-color)] text-xl fa-solid fa-bars"></i>
+  </div>
+
   <nav id="headerNavbar" class="md:block w-full md:w-fit hidden">
-    <ul class="flex flex-col mt-5 md:mt-0 px-2 gap-3 md:flex-row">
+    <ul class="flex flex-col mt-5 md:mt-0 px-2 gap-3 py-3 md:flex-row">
       <li><a href="#">Home</a></li>
       <li><a href="#">Sobre nosotros</a></li>
       <li><a href="#">Servicios</a></li>
