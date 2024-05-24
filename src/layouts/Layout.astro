@@ -1,18 +1,31 @@
 ---
-interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
+const {
+  title,
+  description = "description",
+  lang = "es",
+  showLegal = true,
+} = Astro.props;
+import Whatsapp from "../components/Whatsapp.astro";
+import LegalAgreement from "../components/Agreements.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta
+      property="og:description"
+      content="Sonrie con confianza con nuestra ayuda"
+    />
+    <meta
+      name="keywords"
+      content="clínica dental, Valencia, dentista, limpieza dental, blanqueamiento dental, ortodoncia, implantes dentales, alineadores, rapido, en el dia, tecnologia avanzada"
+    />
+    <link rel="icon" href="/logo-serranos.png" type="image/x-icon" />
+
     <!-- swiper css -->
     <link
       rel="stylesheet"
@@ -25,6 +38,8 @@ const { title } = Astro.props;
     <script
       src="https://kit.fontawesome.com/759a8eedd2.js"
       crossorigin="anonymous"></script>
+    <Whatsapp />
+    {showLegal && <LegalAgreement />}
   </body>
 </html>
 <style is:global>
@@ -37,6 +52,9 @@ const { title } = Astro.props;
     margin: 0;
   }
   :root {
-    --main-color: #1e79fe;
+    --secondary-color: #273047;
+    --main-color: #273047;
+    --funnel-secondary-color: #1e79fe;
+    --funnel-primary-color: #d4efff;
   }
 </style>

@@ -1,9 +1,9 @@
 ---
-const { href, variant, text } = Astro.props;
+const { href, variant, text, blank = true } = Astro.props;
 const classes =
   variant == "primary"
     ? "uppercase min-w-[250px] text-[20px] py-1.5 rounded-full bg-[var(--main-color)] text-white font-medium"
     : "uppercase border-2 text-[20px] text-[var(--main-color)] border-[var(--main-color)] min-w-[250px] py-1.5 rounded-full font-medium";
 ---
 
-<a href={href} class={classes}>{text}</a>
+<a href={href} target={blank ? "_blank" : "_parent"} class={classes}>{text}</a>

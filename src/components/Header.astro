@@ -1,3 +1,7 @@
+---
+const { lang } = Astro.props;
+---
+
 <header
   class="p-5 shadow-md fixed top-0 z-10 w-full bg-white/90 flex justify-between items-center flex-wrap"
 >
@@ -7,20 +11,110 @@
       id="showMenuBtn"
       class="text-[var(--main-color)] text-xl fa-solid fa-bars"></i>
   </div>
-
-  <nav id="headerNavbar" class="md:block w-full md:w-fit hidden">
-    <ul class="flex flex-col mt-5 md:mt-0 px-2 gap-3 py-3 md:flex-row">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Sobre nosotros</a></li>
-      <li><a href="#">Servicios</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
-  </nav>
+  {
+    lang == "ES" ? (
+      <nav id="headerNavbar" class="md:block w-full md:w-fit hidden">
+        <ul class="flex flex-col items-center mt-5 md:mt-0 px-2 gap-3 py-3 md:flex-row">
+          <li>
+            <a href="#home">Home</a>
+          </li>
+          <li>
+            <a href="#about">Sobre nosotros</a>
+          </li>
+          <li>
+            <a href="#servicios">Servicios</a>
+          </li>
+          <li>
+            <a href="#contacto">Contacto</a>
+          </li>
+          <li id="lang-button" class="h-[30px] cursor-pointer">
+            <img
+              src="/sp-flag.webp"
+              class="h-[30px] w-[35px] inline-block object-cover"
+              alt="espanol"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-caret-down-fill inline-block"
+              viewBox="0 0 16 16"
+            >
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+            </svg>
+            <ul id="lang-list" class="bg-white shadow-sm hidden rounded-sm">
+              <li>
+                <a class="flex text-xs items-center p-[2px]" href="/index-en">
+                  <img
+                    src="/us-flag.png"
+                    class="h-[30px] mr-1 w-[30px] object-cover"
+                    alt="english"
+                  />
+                  English
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    ) : (
+      <nav id="headerNavbar" class="md:block w-full md:w-fit hidden">
+        <ul class="flex flex-col items-center mt-5 md:mt-0 px-2 gap-3 py-3 md:flex-row">
+          <li>
+            <a href="#home">Home</a>
+          </li>
+          <li>
+            <a href="#about">About us</a>
+          </li>
+          <li>
+            <a href="#servicios">Services</a>
+          </li>
+          <li>
+            <a href="#contacto">Contact us</a>
+          </li>
+          <li id="lang-button" class="h-[30px] cursor-pointer">
+            <img
+              src="/us-flag.png"
+              class="h-[30px] mr-1 w-[30px] inline-block object-cover"
+              alt="english"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-caret-down-fill inline-block"
+              viewBox="0 0 16 16"
+            >
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+            </svg>
+            <ul id="lang-list" class="bg-white shadow-sm hidden rounded-sm">
+              <li>
+                <a class="flex text-xs items-center p-[2px]" href="/">
+                  <img
+                    src="/sp-flag.webp"
+                    class="h-[30px] w-[35px] inline-block object-cover"
+                    alt="espanol"
+                  />
+                  Español
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    )
+  }
 </header>
 
 <script>
   const showMenuBtn = document.getElementById("showMenuBtn");
   showMenuBtn.addEventListener("click", () =>
     document.getElementById("headerNavbar").classList.toggle("hidden")
+  );
+  const langButton = document.getElementById("lang-button");
+  langButton.addEventListener("click", () =>
+    document.getElementById("lang-list").classList.toggle("hidden")
   );
 </script>

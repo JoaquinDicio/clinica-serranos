@@ -10,18 +10,19 @@ import implantes from "../assets/implantes.jpg";
 import rehabilitacion from "../assets/rehabilitacion.jpg";
 import blanqueamiento from "../assets/blanqueamiento.jpg";
 import composite from "../assets/composite.jpg";
-import SliderReviews from "../components/SliderReviews.astro";
+
 import ServiceCard from "../components/ServiceCard.astro";
 import Slider from "../components/Slider.astro";
 import ProceduresSlider from "../components/ProceduresSlider.astro";
 ---
 
 <Layout
-  description="Clínica dental en Valencia: Expertos en cuidar tu sonrisa. Ofrecemos servicios de limpieza, blanqueamiento, ortodoncia, implantes y alineadores. ¡Agenda tu cita hoy!"
-  title="Serranos - Clinica Dental"
+  lang="EN"
+  description="Dental clinic in Valencia: Experts in oral care. We offer cleaning, whitening, orthodontics, and dental implants services. Schedule your appointment today!"
+  title="Serranos - Dental Clinic"
 >
   <main>
-    <Header lang="ES" />
+    <Header lang="EN" />
     <main>
       <!-- HOME -->
       <section id="home" class="min-h-screen pb-[50px]">
@@ -31,21 +32,21 @@ import ProceduresSlider from "../components/ProceduresSlider.astro";
           <div
             class="flex flex-col bg-white/90 absolute bottom-[-100px] rounded-sm md:rounded-lg py-10 items-center text-center"
           >
-            <Title title="¡Sonrie con confianza!" />
+            <Title title="Smile with Confidence!" />
             <p class="px-8 md:max-w-[800px] pt-5">
-              En nuestra clínica dental, ofrecemos un cuidado personalizado para
-              mantener tus dientes sanos y tu sonrisa radiante
+              In our dental clinic, we offer personalized care to keep your
+              teeth healthy and your smile radiant.
             </p>
             <nav class="flex flex-col gap-1 mt-8">
               <Anchord
-                text="Contactar"
+                text="Contact us"
                 variant="primary"
                 href="https://wa.me/message/R5MXKI5CQE23F1"
               />
               <Anchord
-                text="Saber mas"
-                blank={false}
+                text="Learn more"
                 variant="secondary"
+                blank={false}
                 href="#servicios"
               />
             </nav>
@@ -57,29 +58,28 @@ import ProceduresSlider from "../components/ProceduresSlider.astro";
         id="about"
         class="flex flex-col mt-[100px] items-center text-center pb-[120px]"
       >
-        <Title title="Sobre nosotros" />
+        <Title title="About us" />
         <p class="px-10 mt-10 text-center max-w-[700px]">
-          En <span class="font-medium">Clinica Serranos</span> somos tu destino para
-          una sonrisa
-          <span class="font-medium">saludable y radiante.</span> Con un equipo profesional
-          y tecnología avanzada, te ofrecemos atención dental de alta calidad y un
-          ambiente acogedor.
+          In <span class="font-medium">Clinica Serranos</span> we are your destination
+          for a healthy and radiant smile. With a professional team and advanced
+          technology, we offer you high-quality dental care and a welcoming environment
         </p>
+
         <p class="px-10 mt-5 text-center mb-10 max-w-[700px]">
-          Desde <span class="font-medium"
-            >limpiezas hasta tratamientos especializados,</span
-          > estamos aquí para cuidar de ti. Confía en Clínica Serranos para lograr
-          tu mejor sonrisa.
+          From <span class="font-medium"
+            >cleanings to specialized treatments,</span
+          > we are here to take care of you. Trust Clinica Serranos to achieve your
+          best smile.
         </p>
         <Slider />
       </section>
       <!-- DIVIDER -->
       <section class="bg-cover bg-center bg-[url('/sonrisa.jpg')]">
         <div
-          class="flex flex-col gap-2 py-8 md:py-12 text-white items-center justify-center bg-[#0C1F2D]/70"
+          class="flex flex-col gap-2 py-8 md:py-14 text-white items-center justify-center bg-[#0C1F2D]/70"
         >
-          <h2 class="font-bold text-2xl">Una sonrisa</h2>
-          <p>Es lo mas bonito que puedes ponerte</p>
+          <h2 class="font-bold text-2xl">A smile</h2>
+          <p>It's the prettiest thing you can wear.</p>
           <span class="font-bold text-3xl rotate-90">:)</span>
         </div>
       </section>
@@ -88,11 +88,12 @@ import ProceduresSlider from "../components/ProceduresSlider.astro";
         id="servicios"
         class="pt-[100px] flex flex-col items-center pb-[6rem]"
       >
-        <Title title="Nuestros servicios" />
+        <Title title="Our services" />
+
         <p class="text-center px-8 py-5 md:max-w-[800px]">
-          En nuestra clínica dental, nos enorgullece ofrecer un cuidado dental
-          personalizado, diseñado para mantener tus dientes en óptimas
-          condiciones y tu sonrisa brillante en todo momento.
+          In our dental clinic, we take pride in offering personalized dental
+          care, designed to keep your teeth in optimal condition and your smile
+          bright at all times.
         </p>
         <!-- TARJETAS DE SERVICIOS -->
         <div
@@ -100,35 +101,34 @@ import ProceduresSlider from "../components/ProceduresSlider.astro";
         >
           <ServiceCard
             photo={carillas}
-            title="Carillas ceramicas"
-            description="¡Transforma tu sonrisa en una obra maestra! Nuestras carillas cerámicas de alta calidad ocultan defectos como manchas, fracturas y desalineaciones, dando a tus dientes una apariencia impecable y digna de una estrella de cine."
+            title="Ceramic Veneers"
+            description="Transform your smile into a masterpiece! Our high-quality ceramic veneers conceal flaws such as stains, fractures, and misalignments, giving your teeth an impeccable appearance worthy of a movie star."
           />
           <ServiceCard
             photo={alineadores}
-            extraLink={{ href: "./funnel", text: "Mas informacion" }}
             extraClasses={"object-top"}
-            title="Alineadores dentales"
-            description="Nuestros alineadores dentales transparentes enderezan tus dientes de manera discreta y cómoda, sin necesidad de los molestos brackets metálicos."
+            title="Dental Aligners"
+            description="Our transparent dental aligners discreetly and comfortably straighten your teeth, without the need for annoying metal brackets."
           />
           <ServiceCard
             photo={implantes}
-            title="Implantes dentales"
-            description="Con nuestros implantes dentales, puedes decir adiós a los espacios vacíos y disfrutar de una sonrisa perfecta y funcional que te devolverá la confianza en ti mismo."
+            title="Dental Implants"
+            description="With our dental implants, you can say goodbye to empty spaces and enjoy a perfect, functional smile that will restore your confidence."
           />
           <ServiceCard
             photo={composite}
             title="Composite"
-            description="Nuestro servicio de composite en ortodoncia ofrece la reparación de dientes dañados y la reconstrucción de estructuras dentales perdidas debido a caries o fracturas ¡Restauramos la funcionalidad y la estética de tu sonrisa!"
+            description="Our composite service in orthodontics offers the repair of damaged teeth and the reconstruction of dental structures lost due to cavities or fractures. We restore the functionality and aesthetics of your smile!"
           />
           <ServiceCard
             photo={rehabilitacion}
-            title="Rehabilitacion adhesiva"
-            description="¡Restaura la belleza y la funcionalidad de tus dientes de forma rápida y sin complicaciones! Con nuestra rehabilitación adhesiva, tus dientes recuperarán su forma y color natural, ¡y estarás listo para brillar en cualquier ocasión!"
+            title="Adhesive Rehabilitation"
+            description="Restore the beauty and functionality of your teeth quickly and without complications! With our adhesive rehabilitation, your teeth will regain their natural shape and color, and you'll be ready to shine on any occasion!"
           />
           <ServiceCard
             photo={blanqueamiento}
-            title="Blanqueamiento Dental"
-            description="Nuestro tratamiento de blanqueamiento dental elimina manchas y decoloraciones, dejando tus dientes con un blanco deslumbrante y una sonrisa radiante que te hará destacar en cualquier lugar."
+            title="Teeth Whitening"
+            description="Our teeth whitening treatment removes stains and discoloration, leaving your teeth with a dazzling white and a radiant smile that will make you stand out anywhere."
           />
         </div>
       </section>
@@ -141,17 +141,17 @@ import ProceduresSlider from "../components/ProceduresSlider.astro";
         <div
           class="text-center flex flex-col text-white gap-10 py-16 md:py-20 bg-black/70"
         >
-          <h3 class="font-medium text-2xl">Flujo de trabajo 100% digital</h3>
+          <h3 class="font-medium text-2xl">100% Digital Workflow</h3>
           <p class="px-10 md:max-w-[550px] mx-auto">
-            Experimente nuestro innovador flujo de trabajo totalmente digital en
-            nuestra clínica dental.
+            Experience our innovative fully digital workflow at our dental
+            clinic.
           </p>
           <p class="px-10 font-medium md:max-w-[550px] mx-auto">
-            La sonrisa de tus sueños hecha realidad con tecnología de vanguardia
+            Your dream smile made real with cutting-edge technology.
           </p>
           <div class="bg-[#273047]/70 w-full py-4 text-white">
-            <p class="uppercase md:text-xl">el diseño de tu sonrisa</p>
-            <span class="font-bold uppercase md:text-xl">listo en el dia</span>
+            <p class="uppercase md:text-xl">Your smile design</p>
+            <span class="font-bold uppercase md:text-xl">ready in one day</span>
           </div>
         </div>
       </section>
@@ -163,22 +163,21 @@ import ProceduresSlider from "../components/ProceduresSlider.astro";
         <Title
           lightMode={true}
           extraClasses="p-10"
-          title="Te mostramos resultados de nuestros pacientes"
+          title="We show you results from our patients"
         />
         <p class="text-center pb-10 px-10 max-w-[650px]">
-          En la Clínica Dental Serrano estudiamos cada caso de manera
-          personalizada, con el objetivo de conseguir los mejores resultados en
-          cada tratamiento.
+          At Clínica Dental Serrano, we study each case individually, with the
+          aim of achieving the best results in each treatment.
         </p>
-        <ProceduresSlider />
+        <ProceduresSlider lang="EN" />
         <div
           class="h-[40vh] mb-10 flex text-center items-center justify-center flex-col"
         >
-          <p class="text-xl font-bold">¿Quieres ver más resultados?</p>
+          <p class="text-xl font-bold">Do you want to see more results?</p>
           <a
             href="https://www.instagram.com/clinicadentalserranos/"
             class="rounded-full border-white border-2 mt-5 py-2 px-3 text-center uppercase"
-            >siguenos en instagram</a
+            >Follow us on Instagram</a
           >
         </div>
         <div
@@ -188,36 +187,30 @@ import ProceduresSlider from "../components/ProceduresSlider.astro";
             class="py-14 md:py-20 w-full flex text-center items-center justify-center flex-col bg-black/50"
           >
             <h2 class="font-bold text-white text-2xl px-12">
-              Primera visita y diagnostico sin coste
+              First visit and diagnosis at no cost
             </h2>
             <a
               href="https://wa.me/message/R5MXKI5CQE23F1"
               target="_blank"
               class="rounded-full text-white bg-[var(--secondary-color)] uppercase font-medium px-12 my-7 py-2"
-              >CONTACTAR</a
+              >CONTACT US</a
             >
             <span class="font-bold text-4xl rotate-90 text-white">:)</span>
           </div>
         </div>
-        <div class="w-full px-5 flex flex-col items-center">
-          <p class="text-xl font-bold text-center mt-10">
-            ¿Qué opinan de nosotros?
-          </p>
-
-          <SliderReviews />
-        </div>
       </section>
       <!-- CONTACTO -->
       <section id="contacto" class="pt-20">
-        <Title extraClasses="mb-10 px-10" title="¿Qué estás esperando?" />
+        <Title extraClasses="mb-10 px-10" title="What are you wating for?" />
         <p class="text-center mb-5 px-10 md:max-w-[600px] mx-auto">
-          No permitas que el miedo o la indecisión te impidan alcanzar la
-          sonrisa que siempre has deseado.
+          Don't let fear or indecision stop you from achieving the smile you've
+          always desired.
         </p>
         <p class="font-bold text-md text-center px-10 md:max-w-[700px] mx-auto">
-          ¡Contáctanos hoy mismo para programar una consulta y dar el primer
-          paso hacia una sonrisa más saludable y hermosa!
+          Contact us today to schedule a consultation and take the first step
+          towards a healthier and more beautiful smile!
         </p>
+
         <div class="flex justify-center mt-10 px-10">
           <a
             href="https://www.instagram.com/clinicadentalserranos/"

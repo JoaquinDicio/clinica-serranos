@@ -1,0 +1,23 @@
+<div
+  id="legal-agreement"
+  class="fixed flex flex-col justify-center bottom-0 z-10 w-full p-5 text-center bg-[#ebebeb] shadow-sm"
+>
+  <p class="text-[12px] max-w-[600px] mx-auto">
+    Al acceder y utilizar este sitio web, usted acepta y se compromete a cumplir
+    con nuestras <a
+      class="text-blue-500 underline"
+      href="/politics"
+      target="_blank">políticas de privacidad y aviso legal</a
+    >. De lo contrario no continue su navegacion.
+  </p>
+  <button
+    id="agreement-btn"
+    class="text-[12px] bg-white max-w-fit mx-auto mt-5 rounded p-1"
+    >Estoy de acuerdo</button
+  >
+</div>
+<script>
+  document.getElementById("agreement-btn").addEventListener("click", () => {
+    document.getElementById("legal-agreement").classList.add("hidden");
+  });
+</script>

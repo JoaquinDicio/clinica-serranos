@@ -1,28 +1,136 @@
 ---
+const { lang = "ES" } = Astro.props;
 import ProcedurePost from "./ProcedurePost.astro";
+const POSTS_PROCEDURES =
+  lang == "ES"
+    ? [
+        {
+          title: "Rehabilitacion Adhesiva",
+          description:
+            "Combinación de carillas, carillas 360, vonlays, recambio de coronas metal ceramicas y coronas de zirconia sobre implantes",
+          photo_url: "/procedimientos/procedimiento-1.jpg",
+        },
+        {
+          title: "Recambio de coronas",
+          description:
+            "Recambio antiguas coronas metal ceramicas, por coronas de ceramica pura,base de zirconio opaco y estratificacion.",
+          photo_url: "/procedimientos/procedimiento-2.jpg",
+        },
+        {
+          title: "Alineadores + Blanqueamiento",
+          description:
+            "Tratamiento integral, estético y establecimiento de guía anterior con entrecruzamiento",
+          photo_url: "/procedimientos/procedimiento-3.jpg",
+        },
+        {
+          title: "Tratamiento con carillas ceramicas",
+          description:
+            "Convertimos los laterales en centrales y caninos en laterales con carillas con un color natural",
+          photo_url: "/procedimientos/procedimiento-4.jpg",
+        },
+        {
+          title: "Rehabilitacion carillas ceramicas",
+          description:
+            "Rehabilitación en carillas ceramicas combinado con alineadores para descruzar mordida.",
+          photo_url: "/procedimientos/procedimiento-5.jpg",
+        },
+        {
+          title: "Rehabilitacion con implantes",
+          description:
+            "Rehabilitación combinada utilizando implantes, cirugia guiada, injertos de tejido y coronas en zirconia.",
+          photo_url: "/procedimientos/procedimiento-6.jpg",
+        },
+        {
+          title: "Cierre de triangulos",
+          description:
+            "Cierre de triángulos negros entre dientes con resina, mejoramos la estética dando proporciones más bellas",
+          photo_url: "/procedimientos/procedimiento-7.jpg",
+        },
+        {
+          title: "Resolucion de malposiciones",
+          description:
+            "4 meses con alineadores invisibles + blanqueamiento + modificación de forma con resina",
+          photo_url: "/procedimientos/procedimiento-8.jpg",
+        },
+        {
+          title: "Rehabilitacion en bruxismo severo",
+          description:
+            "Reconstruccion de piezas con ceramica para lograr una buena estética y resistencia, se colocaron implantes de las piezas ausentes",
+          photo_url: "/procedimientos/procedimiento-9.jpg",
+        },
+      ]
+    : [
+        {
+          title: "Adhesive Rehabilitation",
+          description:
+            "Combination of veneers, 360 veneers, vonlays, replacement of metal-ceramic crowns, and zirconia crowns on implants.",
+          photo_url: "/procedimientos/procedimiento-1.jpg",
+        },
+        {
+          title: "Replacement of Crowns",
+          description:
+            "Replacement of old metal-ceramic crowns with pure ceramic crowns, opaque zirconium base, and stratification.",
+          photo_url: "/procedimientos/procedimiento-2.jpg",
+        },
+        {
+          title: "Aligners + Whitening",
+          description:
+            "Comprehensive treatment, aesthetic, and establishment of anterior guidance with intercuspation.",
+          photo_url: "/procedimientos/procedimiento-3.jpg",
+        },
+        {
+          title: "Treatment with Ceramic Veneers",
+          description:
+            "Turning laterals into centrals and canines into laterals with veneers in a natural color.",
+          photo_url: "/procedimientos/procedimiento-4.jpg",
+        },
+        {
+          title: "Rehabilitation with Ceramic Veneers",
+          description:
+            "Rehabilitation with ceramic veneers combined with aligners to uncross the bite.",
+          photo_url: "/procedimientos/procedimiento-5.jpg",
+        },
+        {
+          title: "Rehabilitation with Implants",
+          description:
+            "Combined rehabilitation using implants, guided surgery, tissue grafts, and zirconia crowns.",
+          photo_url: "/procedimientos/procedimiento-6.jpg",
+        },
+        {
+          title: "Closure of Black Triangles",
+          description:
+            "Closure of black triangles between teeth with resin, improving aesthetics by giving more beautiful proportions.",
+          photo_url: "/procedimientos/procedimiento-7.jpg",
+        },
+        {
+          title: "Resolution of Malpositions",
+          description:
+            "4 months with invisible aligners + whitening + shape modification with resin.",
+          photo_url: "/procedimientos/procedimiento-8.jpg",
+        },
+        {
+          title: "Rehabilitation in Severe Bruxism",
+          description:
+            "Reconstruction of teeth with ceramic to achieve good aesthetics and resistance, implants were placed for missing teeth.",
+          photo_url: "/procedimientos/procedimiento-9.jpg",
+        },
+      ];
 ---
 
 <!-- Swiper -->
-<div class="swiper mySwiper">
+<div class="swiper mySwiperProcedures">
   <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <ProcedurePost
-        title="Procedimiento"
-        description="Una descripcion del procedimiento realizado"
-      />
-    </div>
-    <div class="swiper-slide">
-      <ProcedurePost
-        title="Procedimiento"
-        description="Una descripcion del procedimiento realizado"
-      />
-    </div>
-    <div class="swiper-slide">
-      <ProcedurePost
-        title="Procedimiento"
-        description="Una descripcion del procedimiento realizado"
-      />
-    </div>
+    {
+      POSTS_PROCEDURES.map((post) => (
+        <div class="swiper-slide">
+          <ProcedurePost
+            photo_url={post.photo_url}
+            title={post.title}
+            description={post.description}
+          />
+        </div>
+      ))
+    }
   </div>
 </div>
 
@@ -31,12 +139,12 @@ import ProcedurePost from "./ProcedurePost.astro";
   //this error should be ignored, its a editor thing
   import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
 
-  var swiper = new Swiper(".mySwiper", {
+  var swiper = new Swiper(".mySwiperProcedures", {
     slidesPerView: 1,
     spaceBetween: 10,
     autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
+      delay: 5000,
+      disableOnInteraction: true,
     },
     breakpoints: {
       640: {
@@ -49,6 +157,10 @@ import ProcedurePost from "./ProcedurePost.astro";
       },
       1024: {
         slidesPerView: 3,
+        spaceBetween: 50,
+      },
+      1600: {
+        slidesPerView: 4,
         spaceBetween: 50,
       },
     },
