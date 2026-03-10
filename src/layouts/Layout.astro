@@ -6,7 +6,7 @@ const {
   showLegal = true,
 } = Astro.props;
 import Whatsapp from "../components/Whatsapp.astro";
-import LegalAgreement from "../components/Agreements.astro";
+import CookiesAgreement from "../components/CookiesAgreement.astro";
 ---
 
 <!doctype html>
@@ -39,7 +39,7 @@ import LegalAgreement from "../components/Agreements.astro";
       src="https://kit.fontawesome.com/759a8eedd2.js"
       crossorigin="anonymous"></script>
     <Whatsapp />
-    {showLegal && <LegalAgreement />}
+    {showLegal && <CookiesAgreement lang={lang} client:load />}
   </body>
 </html>
 <style is:global>

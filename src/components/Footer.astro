@@ -1,0 +1,58 @@
+---
+const { lang } = Astro.props;
+
+const t = {
+  ES: {
+    legal: "Aviso Legal",
+    cookies: "Política de Cookies",
+    privacy: "Política de Privacidad",
+    rights: "Todos los derechos reservados"
+  },
+  EN: {
+    legal: "Legal Notice",
+    cookies: "Cookie Policy",
+    privacy: "Privacy Policy",
+    rights: "All rights reserved"
+  },
+  RU: {
+    legal: "Правовая информация",
+    cookies: "Политика cookies",
+    privacy: "Политика конфиденциальности",
+    rights: "Все права защищены"
+  }
+};
+
+const content = t[lang] || t.ES;
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-20 bg-gray-100 border-t">
+  <div class="max-w-[900px] mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-600">
+
+    <div>
+      © {year} Clinica Dental Serranos
+    </div>
+
+    <div class="flex gap-4 flex-wrap justify-center">
+
+      <a href="/legal" class="hover:underline">
+        {content.legal}
+      </a>
+
+      <a href="/cookies" class="hover:underline">
+        {content.cookies}
+      </a>
+
+      <a href="/legal#privacidad" class="hover:underline">
+        {content.privacy}
+      </a>
+
+    </div>
+
+    <div class="text-xs text-gray-500">
+      {content.rights}
+    </div>
+
+  </div>
+</footer>

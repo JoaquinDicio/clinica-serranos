@@ -1,0 +1,102 @@
+---
+const { lang = 'ES' } = Astro.props;
+
+const translations = {
+  ES: {
+    text: "Utilizamos cookies propias y de terceros con fines analíticos para comprender cómo los usuarios interactúan con nuestro sitio web y mejorar nuestros servicios.",
+    moreInfo: "Más información en nuestra",
+    policy: "Política de Cookies",
+    policyUrl: "/cookies",
+    accept: "Aceptar",
+    reject: "Rechazar"
+  },
+
+  EN: {
+    text: "We use our own and third-party analytical cookies to understand how users interact with our website and improve our services.",
+    moreInfo: "More information in our",
+    policy: "Cookie Policy",
+    policyUrl: "/cookies-en",
+    accept: "Accept",
+    reject: "Reject"
+  },
+
+  RU: {
+    text: "Мы используем собственные и сторонние аналитические файлы cookie, чтобы понять, как пользователи взаимодействуют с нашим сайтом, и улучшить наши услуги.",
+    moreInfo: "Подробнее в нашей",
+    policy: "Политике использования cookies",
+    policyUrl: "/cookies-ru",
+    accept: "Принять",
+    reject: "Отклонить"
+  }
+};
+
+const t = translations[lang] || translations.ES;
+---
+
+<div
+  id="cookie-banner"
+  class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-[720px] bg-white border border-gray-200 rounded-xl shadow-lg p-6"
+>
+  <p class="text-sm text-gray-700 leading-relaxed">
+    {t.text}
+    {t.moreInfo}
+    <a class="text-blue-600 underline" href={t.policyUrl} target="_blank">
+      {t.policy}
+    </a>.
+  </p>
+
+  <div class="flex gap-3 justify-end mt-4">
+    <button
+      id="reject-cookies"
+      class="text-sm border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100"
+    >
+      {t.reject}
+    </button>
+
+    <button
+      id="accept-cookies"
+      class="text-sm bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+    >
+      {t.accept}
+    </button>
+  </div>
+</div>
+
+<script>
+  const banner = document.getElementById("cookie-banner");
+
+  function loadGTM() {
+    if (document.querySelector('script[src*="googletagmanager.com/gtm.js"]')) {
+      return;
+    }
+
+    const gtmScript = document.createElement("script");
+
+    gtmScript.innerHTML = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T6F4VGFC');`;
+
+    document.head.appendChild(gtmScript);
+  }
+
+  if (localStorage.getItem("cookie-consent")) {
+    banner.classList.add("hidden");
+
+    if (localStorage.getItem("cookie-consent") === "accepted") {
+      loadGTM();
+    }
+  }
+
+  document.getElementById("accept-cookies").addEventListener("click", () => {
+    localStorage.setItem("cookie-consent", "accepted");
+    banner.classList.add("hidden");
+    loadGTM();
+  });
+
+  document.getElementById("reject-cookies").addEventListener("click", () => {
+    localStorage.setItem("cookie-consent", "rejected");
+    banner.classList.add("hidden");
+  });
+</script>
