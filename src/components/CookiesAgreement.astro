@@ -1,5 +1,5 @@
 ---
-const { lang = 'ES' } = Astro.props;
+const { lang = "ES" } = Astro.props;
 
 const translations = {
   ES: {
@@ -8,7 +8,7 @@ const translations = {
     policy: "Política de Cookies",
     policyUrl: "/cookies",
     accept: "Aceptar",
-    reject: "Rechazar"
+    reject: "Rechazar",
   },
 
   EN: {
@@ -17,7 +17,7 @@ const translations = {
     policy: "Cookie Policy",
     policyUrl: "/cookies-en",
     accept: "Accept",
-    reject: "Reject"
+    reject: "Reject",
   },
 
   RU: {
@@ -26,8 +26,8 @@ const translations = {
     policy: "Политике использования cookies",
     policyUrl: "/cookies-ru",
     accept: "Принять",
-    reject: "Отклонить"
-  }
+    reject: "Отклонить",
+  },
 };
 
 const t = translations[lang] || translations.ES;
@@ -62,7 +62,7 @@ const t = translations[lang] || translations.ES;
   </div>
 </div>
 
-<script>
+<script is:inline>
   const banner = document.getElementById("cookie-banner");
 
   function loadGTM() {
