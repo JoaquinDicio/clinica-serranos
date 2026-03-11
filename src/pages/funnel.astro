@@ -126,7 +126,7 @@ import { Image } from "astro:assets";
       modal.appendChild(generateInput("email", "Email"));
       modal.appendChild(generateOptButton("morning", "Por la mañana"));
       modal.appendChild(
-        generateOptButton("afternoon", "Por la tarde", "secondary")
+        generateOptButton("afternoon", "Por la tarde", "secondary"),
       );
       modal.appendChild(submit);
 
@@ -134,7 +134,7 @@ import { Image } from "astro:assets";
       btn_close.textContent = "Cancelar";
       btn_close.className = "mt-10 text-white font-medium";
       btn_close.addEventListener("click", () =>
-        document.body.removeChild(modal_container)
+        document.body.removeChild(modal_container),
       );
 
       modal_container.appendChild(modal);
