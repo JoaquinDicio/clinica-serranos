@@ -1,0 +1,32 @@
+---
+const { lang = "ES" } = Astro.props;
+
+const data = {
+    ES: {
+        title: "Una sonrisa",
+        text: "Es lo más bonito que puedes ponerte",
+    },
+
+    EN: {
+        title: "A smile",
+        text: "Is the most beautiful thing you can wear",
+    },
+
+    RU: {
+        title: "Улыбка",
+        text: "Это самое красивое, что вы можете надеть",
+    },
+};
+
+const t = data[lang] ?? data.ES;
+---
+
+<section class="bg-cover bg-center bg-[url('/sonrisa.jpg')]">
+    <div
+        class="flex flex-col gap-2 py-8 md:py-12 text-white items-center justify-center bg-[#0C1F2D]/70"
+    >
+        <h2 class="font-bold text-2xl">{t.title}</h2>
+        <p>{t.text}</p>
+        <span class="font-bold text-3xl rotate-90">:)</span>
+    </div>
+</section>

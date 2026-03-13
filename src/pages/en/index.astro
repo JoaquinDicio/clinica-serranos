@@ -2,7 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Title from "../../components/Title.astro";
-import Anchord from "../../components/Anchord.astro";
 import Footer from "../../components/Footer.astro";
 
 // fotos de servicios
@@ -16,44 +15,20 @@ import composite from "../../assets/composite.jpg";
 import ServiceCard from "../../components/ServiceCard.astro";
 import Slider from "../../components/Slider.astro";
 import ProceduresSlider from "../../components/ProceduresSlider.astro";
+import Home from "../../components/Home.astro";
+
+const lang = "EN";
 ---
 
 <Layout
-  lang="EN"
+  lang={lang}
   description="Dental clinic in Valencia: Experts in oral care. We offer cleaning, whitening, orthodontics, and dental implants services. Schedule your appointment today!"
   title="Serranos - Dental Clinic"
 >
-  <Header lang="EN" />
+  <Header lang={lang} />
   <main>
     <!-- HOME -->
-    <section id="home" class="min-h-screen pb-[50px]">
-      <div
-        class="min-h-screen relative flex flex-column justify-center items-end home-div"
-      >
-        <div
-          class="flex flex-col bg-white/90 absolute bottom-[-100px] rounded-sm md:rounded-lg py-10 items-center text-center"
-        >
-          <Title title="Smile with Confidence!" />
-          <p class="px-8 md:max-w-[800px] pt-5">
-            In our dental clinic, we offer personalized care to keep your teeth
-            healthy and your smile radiant.
-          </p>
-          <nav class="flex flex-col gap-1 mt-8">
-            <Anchord
-              text="Contact us"
-              variant="primary"
-              href="https://wa.me/message/R5MXKI5CQE23F1"
-            />
-            <Anchord
-              text="Learn more"
-              variant="secondary"
-              blank={false}
-              href="#servicios"
-            />
-          </nav>
-        </div>
-      </div>
-    </section>
+    <Home lang={lang} />
     <!-- SOBRE NOSOTROS - ABOUT US -->
     <section
       id="about"

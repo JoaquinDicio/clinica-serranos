@@ -1,20 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+// componentes
 import Header from "../components/Header.astro";
 import Title from "../components/Title.astro";
-import Anchord from "../components/Anchord.astro";
 import Footer from "../components/Footer.astro";
-// fotos de servicios
-import carillas from "../assets/carillas.jpg";
-import alineadores from "../assets/alineadores.jpg";
-import implantes from "../assets/implantes.jpg";
-import rehabilitacion from "../assets/rehabilitacion.jpg";
-import blanqueamiento from "../assets/blanqueamiento.jpg";
-import composite from "../assets/composite.jpg";
 import SliderReviews from "../components/SliderReviews.astro";
-import ServiceCard from "../components/ServiceCard.astro";
-import Slider from "../components/Slider.astro";
+import AboutUs from "../components/AboutUs.astro";
 import ProceduresSlider from "../components/ProceduresSlider.astro";
+import Home from "../components/Home.astro";
+import Divider from "../components/Divider.astro";
+import Services from "../components/Services.astro";
+
+const lang = "ES";
 ---
 
 <Layout
@@ -22,117 +20,16 @@ import ProceduresSlider from "../components/ProceduresSlider.astro";
   title="Serranos - Clinica Dental"
 >
   <main>
-    <Header lang="ES" />
+    <Header lang={lang} />
     <main>
       <!-- HOME -->
-      <section id="home" class="min-h-screen pb-[50px]">
-        <div
-          class="min-h-screen relative flex flex-column justify-center items-end home-div"
-        >
-          <div
-            class="flex flex-col bg-white/90 absolute bottom-[-100px] rounded-sm md:rounded-lg py-10 items-center text-center"
-          >
-            <Title title="¡Sonrie con confianza!" />
-            <p class="px-8 md:max-w-[800px] pt-5">
-              En nuestra clínica dental, ofrecemos un cuidado personalizado para
-              mantener tus dientes sanos y tu sonrisa radiante
-            </p>
-            <nav class="flex flex-col gap-1 mt-8">
-              <Anchord
-                text="Contactar"
-                variant="primary"
-                href="https://wa.me/message/R5MXKI5CQE23F1"
-              />
-              <Anchord
-                text="Saber mas"
-                blank={false}
-                variant="secondary"
-                href="#servicios"
-              />
-            </nav>
-          </div>
-        </div>
-      </section>
+      <Home lang={lang} />
       <!-- SOBRE NOSOTROS - ABOUT US -->
-      <section
-        id="about"
-        class="flex flex-col mt-[100px] items-center text-center pb-[120px]"
-      >
-        <Title title="Sobre nosotros" />
-        <p class="px-10 mt-10 text-center max-w-[700px]">
-          En <span class="font-medium">Clinica Serranos</span> somos tu destino para
-          una sonrisa
-          <span class="font-medium">saludable y radiante.</span> Con un equipo profesional
-          y tecnología avanzada, te ofrecemos atención dental de alta calidad y un
-          ambiente acogedor.
-        </p>
-        <p class="px-10 mt-5 text-center mb-10 max-w-[700px]">
-          Desde <span class="font-medium"
-            >limpiezas hasta tratamientos especializados,</span
-          > estamos aquí para cuidar de ti. Confía en Clínica Serranos para lograr
-          tu mejor sonrisa.
-        </p>
-        <Slider />
-      </section>
+      <AboutUs lang={lang} />
       <!-- DIVIDER -->
-      <section class="bg-cover bg-center bg-[url('/sonrisa.jpg')]">
-        <div
-          class="flex flex-col gap-2 py-8 md:py-12 text-white items-center justify-center bg-[#0C1F2D]/70"
-        >
-          <h2 class="font-bold text-2xl">Una sonrisa</h2>
-          <p>Es lo mas bonito que puedes ponerte</p>
-          <span class="font-bold text-3xl rotate-90">:)</span>
-        </div>
-      </section>
+      <Divider lang={lang} />
       <!-- SERVICIOS - SERVICES -->
-      <section
-        id="servicios"
-        class="pt-[100px] flex flex-col items-center pb-[6rem]"
-      >
-        <Title title="Nuestros servicios" />
-        <p class="text-center px-8 py-5 md:max-w-[800px]">
-          En nuestra clínica dental, nos enorgullece ofrecer un cuidado dental
-          personalizado, diseñado para mantener tus dientes en óptimas
-          condiciones y tu sonrisa brillante en todo momento.
-        </p>
-        <!-- TARJETAS DE SERVICIOS -->
-        <div
-          class="flex flex-wrap gap-3 justify-center max-w-[1024px] items-center"
-        >
-          <ServiceCard
-            photo={carillas}
-            title="Carillas ceramicas"
-            description="¡Transforma tu sonrisa en una obra maestra! Nuestras carillas cerámicas de alta calidad ocultan defectos como manchas, fracturas y desalineaciones, dando a tus dientes una apariencia impecable y digna de una estrella de cine."
-          />
-          <ServiceCard
-            photo={alineadores}
-            extraLink={{ href: "./funnel", text: "Mas informacion" }}
-            extraClasses={"object-top"}
-            title="Alineadores dentales"
-            description="Nuestros alineadores dentales transparentes enderezan tus dientes de manera discreta y cómoda, sin necesidad de los molestos brackets metálicos."
-          />
-          <ServiceCard
-            photo={implantes}
-            title="Implantes dentales"
-            description="Con nuestros implantes dentales, puedes decir adiós a los espacios vacíos y disfrutar de una sonrisa perfecta y funcional que te devolverá la confianza en ti mismo."
-          />
-          <ServiceCard
-            photo={composite}
-            title="Composite"
-            description="Nuestro servicio de composite en ortodoncia ofrece la reparación de dientes dañados y la reconstrucción de estructuras dentales perdidas debido a caries o fracturas ¡Restauramos la funcionalidad y la estética de tu sonrisa!"
-          />
-          <ServiceCard
-            photo={rehabilitacion}
-            title="Rehabilitacion adhesiva"
-            description="¡Restaura la belleza y la funcionalidad de tus dientes de forma rápida y sin complicaciones! Con nuestra rehabilitación adhesiva, tus dientes recuperarán su forma y color natural, ¡y estarás listo para brillar en cualquier ocasión!"
-          />
-          <ServiceCard
-            photo={blanqueamiento}
-            title="Blanqueamiento Dental"
-            description="Nuestro tratamiento de blanqueamiento dental elimina manchas y decoloraciones, dejando tus dientes con un blanco deslumbrante y una sonrisa radiante que te hará destacar en cualquier lugar."
-          />
-        </div>
-      </section>
+      <Services lang={lang} />
       <!-- FLUJO DE TRABAJO - WORKFLOW -->
       <section
         id="work-flow"
@@ -249,11 +146,6 @@ import ProceduresSlider from "../components/ProceduresSlider.astro";
 </Layout>
 
 <style>
-  .home-div {
-    background-image: url("/home.jpg");
-    background-size: cover;
-    background-position: center;
-  }
   .first-visit {
     width: 100%;
     background-repeat: no-repeat;

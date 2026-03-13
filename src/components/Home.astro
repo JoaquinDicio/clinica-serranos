@@ -1,0 +1,20 @@
+---
+const { lang } = Astro.props;
+import HeroCard from "./HeroCard.astro";
+---
+
+<section id="home" class="min-h-screen pb-[50px]">
+    <div
+        class="min-h-screen relative flex flex-column justify-center items-end home-div"
+    >
+        <HeroCard lang={lang} />
+    </div>
+</section>
+
+<style>
+    .home-div {
+        background-image: url("/home.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+</style>

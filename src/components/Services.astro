@@ -1,0 +1,166 @@
+---
+const { lang = "ES" } = Astro.props;
+import ServiceCard from "./ServiceCard.astro";
+import Title from "./Title.astro";
+
+//assets
+import carillas from "../assets/carillas.jpg";
+import alineadores from "../assets/alineadores.jpg";
+import implantes from "../assets/implantes.jpg";
+import rehabilitacion from "../assets/rehabilitacion.jpg";
+import blanqueamiento from "../assets/blanqueamiento.jpg";
+import composite from "../assets/composite.jpg";
+
+const data = {
+    ES: {
+        title: "Nuestros servicios",
+        text: "En nuestra clínica dental, nos enorgullece ofrecer un cuidado dental personalizado, diseñado para mantener tus dientes en óptimas condiciones y tu sonrisa brillante en todo momento.",
+        services: [
+            {
+                photo: carillas,
+                title: "Carillas ceramicas",
+                description:
+                    "¡Transforma tu sonrisa en una obra maestra! Nuestras carillas cerámicas de alta calidad ocultan defectos como manchas, fracturas y desalineaciones, dando a tus dientes una apariencia impecable y digna de una estrella de cine.",
+            },
+            {
+                photo: alineadores,
+                extraLink: { href: "./funnel", text: "Mas informacion" },
+                extraClasses: "object-top",
+                title: "Alineadores dentales",
+                description:
+                    "Nuestros alineadores dentales transparentes enderezan tus dientes de manera discreta y cómoda, sin necesidad de los molestos brackets metálicos.",
+            },
+            {
+                photo: implantes,
+                title: "Implantes dentales",
+                description:
+                    "Con nuestros implantes dentales, puedes decir adiós a los espacios vacíos y disfrutar de una sonrisa perfecta y funcional que te devolverá la confianza en ti mismo.",
+            },
+            {
+                photo: composite,
+                title: "Composite",
+                description:
+                    "Nuestro servicio de composite en ortodoncia ofrece la reparación de dientes dañados y la reconstrucción de estructuras dentales perdidas debido a caries o fracturas ¡Restauramos la funcionalidad y la estética de tu sonrisa!",
+            },
+            {
+                photo: rehabilitacion,
+                title: "Rehabilitacion adhesiva",
+                description:
+                    "¡Restaura la belleza y la funcionalidad de tus dientes de forma rápida y sin complicaciones! Con nuestra rehabilitación adhesiva, tus dientes recuperarán su forma y color natural, ¡y estarás listo para brillar en cualquier ocasión!",
+            },
+            {
+                photo: blanqueamiento,
+                title: "Blanqueamiento Dental",
+                description:
+                    "Nuestro tratamiento de blanqueamiento dental elimina manchas y decoloraciones, dejando tus dientes con un blanco deslumbrante y una sonrisa radiante que te hará destacar en cualquier lugar.",
+            },
+        ],
+    },
+
+    EN: {
+        title: "Our services",
+        text: "At our dental clinic, we are proud to offer personalized dental care designed to keep your teeth in optimal condition and your smile bright at all times.",
+        services: [
+            {
+                photo: carillas,
+                title: "Ceramic veneers",
+                description:
+                    "Transform your smile into a masterpiece! Our high-quality ceramic veneers hide imperfections such as stains, fractures and misalignments, giving your teeth a flawless appearance worthy of a movie star.",
+            },
+            {
+                photo: alineadores,
+                extraLink: { href: "./funnel", text: "More information" },
+                extraClasses: "object-top",
+                title: "Dental aligners",
+                description:
+                    "Our transparent dental aligners straighten your teeth discreetly and comfortably, without the need for uncomfortable metal braces.",
+            },
+            {
+                photo: implantes,
+                title: "Dental implants",
+                description:
+                    "With our dental implants, you can say goodbye to empty spaces and enjoy a perfect and functional smile that will restore your confidence.",
+            },
+            {
+                photo: composite,
+                title: "Composite",
+                description:
+                    "Our orthodontic composite service repairs damaged teeth and reconstructs dental structures lost due to cavities or fractures, restoring both the function and the aesthetics of your smile.",
+            },
+            {
+                photo: rehabilitacion,
+                title: "Adhesive rehabilitation",
+                description:
+                    "Restore the beauty and functionality of your teeth quickly and without complications! With our adhesive rehabilitation, your teeth recover their natural shape and color so you can shine on any occasion.",
+            },
+            {
+                photo: blanqueamiento,
+                title: "Teeth whitening",
+                description:
+                    "Our teeth whitening treatment removes stains and discoloration, leaving your teeth brilliantly white and your smile radiant wherever you go.",
+            },
+        ],
+    },
+
+    RU: {
+        title: "Наши услуги",
+        text: "В нашей стоматологической клинике мы гордимся тем, что предлагаем индивидуальный стоматологический уход, разработанный для поддержания здоровья ваших зубов и сияния вашей улыбки.",
+        services: [
+            {
+                photo: carillas,
+                title: "Керамические виниры",
+                description:
+                    "Преобразите свою улыбку в настоящее произведение искусства! Наши высококачественные керамические виниры скрывают пятна, сколы и неровности, придавая зубам безупречный вид, достойный кинозвезды.",
+            },
+            {
+                photo: alineadores,
+                extraLink: { href: "./funnel", text: "Подробнее" },
+                extraClasses: "object-top",
+                title: "Элайнеры",
+                description:
+                    "Наши прозрачные элайнеры выравнивают зубы незаметно и комфортно, без необходимости носить неудобные металлические брекеты.",
+            },
+            {
+                photo: implantes,
+                title: "Зубные импланты",
+                description:
+                    "С нашими зубными имплантами вы можете забыть о пустых промежутках и наслаждаться красивой и функциональной улыбкой, которая вернет вам уверенность.",
+            },
+            {
+                photo: composite,
+                title: "Композит",
+                description:
+                    "Наша услуга композитной реставрации позволяет восстанавливать поврежденные зубы и утраченные структуры из-за кариеса или трещин, возвращая функциональность и эстетику вашей улыбки.",
+            },
+            {
+                photo: rehabilitacion,
+                title: "Адгезивная реабилитация",
+                description:
+                    "Восстановите красоту и функциональность зубов быстро и без осложнений! Благодаря адгезивной реабилитации ваши зубы возвращают естественную форму и цвет.",
+            },
+            {
+                photo: blanqueamiento,
+                title: "Отбеливание зубов",
+                description:
+                    "Наше отбеливание удаляет пятна и потемнения, делая зубы ослепительно белыми и придавая вашей улыбке яркость.",
+            },
+        ],
+    },
+};
+
+const t = data[lang] ?? data.ES;
+---
+
+<section id="servicios" class="pt-[100px] flex flex-col items-center pb-[6rem]">
+    <Title title={t.title} />
+
+    <p class="text-center px-8 py-5 md:max-w-[800px]">
+        {t.text}
+    </p>
+
+    <div
+        class="flex flex-wrap gap-3 justify-center max-w-[1024px] items-center"
+    >
+        {t.services.map((service) => <ServiceCard {...service} />)}
+    </div>
+</section>

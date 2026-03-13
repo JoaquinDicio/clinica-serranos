@@ -1,0 +1,59 @@
+---
+const { lang = "ES" } = Astro.props;
+import Title from "./Title.astro";
+import Anchord from "./Anchord.astro";
+
+const data = {
+  ES: {
+    title: "¡Sonríe con confianza!",
+    text: "En nuestra clínica dental, ofrecemos un cuidado personalizado para mantener tus dientes sanos y tu sonrisa radiante.",
+    primary_btn_txt: "Contactar",
+    secondary_btn_txt: "Saber más",
+  },
+
+  EN: {
+    title: "Smile with confidence!",
+    text: "At our dental clinic, we provide personalized care to keep your teeth healthy and your smile radiant.",
+    primary_btn_txt: "Contact",
+    secondary_btn_txt: "Learn more",
+  },
+
+  RU: {
+    title: "Улыбайтесь с уверенностью!",
+    text: "В нашей стоматологической клинике мы предлагаем индивидуальный уход, чтобы сохранить здоровье ваших зубов и красоту вашей улыбки.",
+    primary_btn_txt: "Связаться",
+    secondary_btn_txt: "Подробнее",
+  },
+};
+
+
+const t = data[lang]
+---
+
+<div
+    class="flex flex-col bg-white/90 absolute bottom-[-100px] rounded-sm md:rounded-lg py-10 items-center text-center"
+>
+    <Title title={t.title} />
+
+    <p class="px-8 md:max-w-[800px] pt-5">
+        {t.text}
+    </p>
+    
+    <nav class="flex flex-col gap-1 mt-8">
+        
+        <Anchord
+            text={t.primary_btn_txt}
+            variant="primary"
+            href="https://wa.me/message/R5MXKI5CQE23F1"
+        />
+
+        <Anchord
+            text={t.secondary_btn_txt}
+            blank={false}
+            variant="secondary"
+            href="#servicios"
+        />
+    
+    </nav>
+
+</div>

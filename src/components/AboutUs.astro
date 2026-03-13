@@ -1,0 +1,45 @@
+---
+const { lang = "ES" } = Astro.props;
+
+import Slider from "./Slider.astro";
+import Title from "./Title.astro";
+
+const data = {
+    ES: {
+        title: "Sobre nosotros",
+        text1: "En Clínica Serranos somos tu destino para una sonrisa saludable y radiante. Con un equipo profesional y tecnología avanzada, te ofrecemos atención dental de alta calidad y un ambiente acogedor.",
+        text2: "Desde limpiezas hasta tratamientos especializados, estamos aquí para cuidar de ti. Confía en Clínica Serranos para lograr tu mejor sonrisa.",
+    },
+
+    EN: {
+        title: "About us",
+        text1: "At Clínica Serranos, we are your destination for a healthy and radiant smile. With a professional team and advanced technology, we offer high-quality dental care in a welcoming environment.",
+        text2: "From cleanings to specialized treatments, we are here to take care of you. Trust Clínica Serranos to help you achieve your best smile.",
+    },
+
+    RU: {
+        title: "О нас",
+        text1: "В клинике Serranos мы поможем вам обрести здоровую и сияющую улыбку. Наша профессиональная команда и современные технологии обеспечивают высококачественную стоматологическую помощь в комфортной атмосфере.",
+        text2: "От профессиональной чистки до специализированных процедур — мы здесь, чтобы заботиться о вас. Доверьтесь клинике Serranos, чтобы обрести свою лучшую улыбку.",
+    },
+};
+
+const t = data[lang] ?? data.ES;
+---
+
+<section
+    id="about"
+    class="flex flex-col mt-[100px] items-center text-center pb-[120px]"
+>
+    <Title title={t.title} />
+
+    <p class="px-10 mt-10 text-center max-w-[700px]">
+        {t.text1}
+    </p>
+
+    <p class="px-10 mt-5 text-center mb-10 max-w-[700px]">
+        {t.text2}
+    </p>
+
+    <Slider />
+</section>
