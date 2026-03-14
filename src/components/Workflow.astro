@@ -1,0 +1,57 @@
+---
+const { lang = "ES" } = Astro.props;
+
+const data = {
+    ES: {
+        title: "Flujo de trabajo 100% digital",
+        text1: "Experimente nuestro innovador flujo de trabajo totalmente digital en nuestra clínica dental.",
+        text2: "La sonrisa de tus sueños hecha realidad con tecnología de vanguardia",
+        footer1: "el diseño de tu sonrisa",
+        footer2: "listo en el dia",
+    },
+
+    EN: {
+        title: "100% Digital Workflow",
+        text1: "Experience our innovative fully digital workflow at our dental clinic.",
+        text2: "The smile of your dreams made reality with cutting-edge technology",
+        footer1: "your smile design",
+        footer2: "ready the same day",
+    },
+
+    RU: {
+        title: "100% цифровой рабочий процесс",
+        text1: "Оцените наш инновационный полностью цифровой рабочий процесс в нашей стоматологической клинике.",
+        text2: "Улыбка вашей мечты, воплощённая в жизнь с помощью передовых технологий",
+        footer1: "дизайн вашей улыбки",
+        footer2: "готов в тот же день",
+    },
+};
+
+const t = data[lang] ?? data.ES;
+---
+
+<section
+    id="work-flow"
+    class="bg-[url('/trabajo-precision.jpg')] text-center bg-cover bg-center m-0"
+>
+    <div class="bg-[#273047]/70 w-full h-[70px]"></div>
+
+    <div
+        class="text-center flex flex-col text-white gap-10 py-16 md:py-20 bg-black/70"
+    >
+        <h3 class="font-medium text-2xl">{t.title}</h3>
+
+        <p class="px-10 md:max-w-[550px] mx-auto">
+            {t.text1}
+        </p>
+
+        <p class="px-10 font-medium md:max-w-[550px] mx-auto">
+            {t.text2}
+        </p>
+
+        <div class="bg-[#273047]/70 w-full py-4 text-white">
+            <p class="uppercase md:text-xl">{t.footer1}</p>
+            <span class="font-bold uppercase md:text-xl">{t.footer2}</span>
+        </div>
+    </div>
+</section>

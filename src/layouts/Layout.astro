@@ -5,8 +5,31 @@ const {
   lang = "es",
   showLegal = true,
 } = Astro.props;
+
 import Whatsapp from "../components/Whatsapp.astro";
 import CookiesAgreement from "../components/CookiesAgreement.astro";
+
+const translations = {
+  es: {
+    ogDescription: "Sonrie con confianza con nuestra ayuda",
+    keywords:
+      "clínica dental, Valencia, dentista, limpieza dental, blanqueamiento dental, ortodoncia, implantes dentales, alineadores, rapido, en el dia, tecnologia avanzada",
+  },
+
+  en: {
+    ogDescription: "Smile with confidence with our help",
+    keywords:
+      "dental clinic, Valencia, dentist, dental cleaning, teeth whitening, orthodontics, dental implants, aligners, fast, same day, advanced technology",
+  },
+
+  ru: {
+    ogDescription: "Улыбайтесь уверенно с нашей помощью",
+    keywords:
+      "стоматологическая клиника, Валенсия, стоматолог, чистка зубов, отбеливание зубов, ортодонтия, зубные импланты, элайнеры, быстро, в тот же день, передовые технологии",
+  },
+};
+
+const t = translations[lang] ?? translations.es;
 ---
 
 <!doctype html>
@@ -16,14 +39,11 @@ import CookiesAgreement from "../components/CookiesAgreement.astro";
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta
-      property="og:description"
-      content="Sonrie con confianza con nuestra ayuda"
-    />
-    <meta
-      name="keywords"
-      content="clínica dental, Valencia, dentista, limpieza dental, blanqueamiento dental, ortodoncia, implantes dentales, alineadores, rapido, en el dia, tecnologia avanzada"
-    />
+
+    <meta property="og:description" content={t.ogDescription} />
+
+    <meta name="keywords" content={t.keywords} />
+
     <link rel="icon" href="/logo-serranos.png" type="image/x-icon" />
 
     <!-- swiper css -->
@@ -31,19 +51,25 @@ import CookiesAgreement from "../components/CookiesAgreement.astro";
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+
     <title>{title}</title>
   </head>
+
   <body>
     <slot />
+
     <script
       src="https://kit.fontawesome.com/759a8eedd2.js"
       crossorigin="anonymous"></script>
+
     <Whatsapp />
     {showLegal && <CookiesAgreement lang={lang} />}
   </body>
 </html>
+
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
   * {
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
@@ -51,6 +77,7 @@ import CookiesAgreement from "../components/CookiesAgreement.astro";
     padding: 0;
     margin: 0;
   }
+
   :root {
     --secondary-color: #273047;
     --main-color: #273047;
