@@ -39,6 +39,8 @@ const t = translations[lang] ?? translations.es;
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <!-- for animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <meta property="og:description" content={t.ogDescription} />
 
@@ -61,6 +63,15 @@ const t = translations[lang] ?? translations.es;
     <script
       src="https://kit.fontawesome.com/759a8eedd2.js"
       crossorigin="anonymous"></script>
+
+    <!-- for animations -->
+    <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {
+        AOS.init();
+      });
+    </script>
 
     <Whatsapp />
     {showLegal && <CookiesAgreement lang={lang} />}

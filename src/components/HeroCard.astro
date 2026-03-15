@@ -26,34 +26,31 @@ const data = {
   },
 };
 
-
-const t = data[lang]
+const t = data[lang];
 ---
 
 <div
-    class="flex flex-col bg-white/90 absolute bottom-[-100px] rounded-sm md:rounded-lg py-10 items-center text-center"
+  data-aos="fade-in"
+  class="flex flex-col bg-white/90 absolute bottom-[-100px] rounded-sm md:rounded-lg py-10 items-center text-center"
 >
-    <Title title={t.title} />
+  <Title title={t.title} />
 
-    <p class="px-8 md:max-w-[800px] pt-5">
-        {t.text}
-    </p>
-    
-    <nav class="flex flex-col gap-1 mt-8">
-        
-        <Anchord
-            text={t.primary_btn_txt}
-            variant="primary"
-            href="https://wa.me/message/R5MXKI5CQE23F1"
-        />
+  <p class="px-8 md:max-w-[800px] pt-5">
+    {t.text}
+  </p>
 
-        <Anchord
-            text={t.secondary_btn_txt}
-            blank={false}
-            variant="secondary"
-            href="#servicios"
-        />
-    
-    </nav>
+  <nav class="flex flex-col gap-1 mt-8">
+    <Anchord
+      text={t.primary_btn_txt}
+      variant="primary"
+      href="https://wa.me/message/R5MXKI5CQE23F1"
+    />
 
+    <Anchord
+      text={t.secondary_btn_txt}
+      blank={false}
+      variant="secondary"
+      href="#servicios"
+    />
+  </nav>
 </div>
