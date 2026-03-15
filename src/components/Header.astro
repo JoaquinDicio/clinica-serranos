@@ -5,12 +5,20 @@ const header_data = {
   ES: {
     flag: "/sp-flag.webp",
     flag_alt: "espanol",
-    switch_lang: {
-      text: "English",
-      href: "/en",
-      flag: "/us-flag.png",
-      alt: "english",
-    },
+    switch_lang: [
+      {
+        text: "English",
+        href: "/en",
+        flag: "/us-flag.png",
+        alt: "english",
+      },
+      {
+        text: "Русский",
+        href: "/ru",
+        flag: "/ru-flag.png",
+        alt: "russian",
+      },
+    ],
     anchors: [
       { text: "Home", href: "#home" },
       { text: "Sobre nosotros", href: "#about" },
@@ -22,12 +30,20 @@ const header_data = {
   EN: {
     flag: "/us-flag.png",
     flag_alt: "english",
-    switch_lang: {
-      text: "Español",
-      href: "/",
-      flag: "/sp-flag.webp",
-      alt: "espanol",
-    },
+    switch_lang: [
+      {
+        text: "Español",
+        href: "/",
+        flag: "/sp-flag.webp",
+        alt: "espanol",
+      },
+      {
+        text: "Русский",
+        href: "/ru",
+        flag: "/ru-flag.png",
+        alt: "russian",
+      },
+    ],
     anchors: [
       { text: "Home", href: "#home" },
       { text: "About us", href: "#about" },
@@ -39,12 +55,20 @@ const header_data = {
   RU: {
     flag: "/ru-flag.png",
     flag_alt: "russian",
-    switch_lang: {
-      text: "Español",
-      href: "/",
-      flag: "/sp-flag.webp",
-      alt: "espanol",
-    },
+    switch_lang: [
+      {
+        text: "Español",
+        href: "/",
+        flag: "/sp-flag.webp",
+        alt: "espanol",
+      },
+      {
+        text: "English",
+        href: "/en",
+        flag: "/us-flag.png",
+        alt: "english",
+      },
+    ],
     anchors: [
       { text: "Главная", href: "#home" },
       { text: "О нас", href: "#about" },
@@ -83,7 +107,7 @@ const data = header_data[lang] ?? header_data.ES;
       <li id="lang-button" class="h-[30px] cursor-pointer">
         <img
           src={data.flag}
-          class="h-[30px] w-[35px] inline-block object-cover"
+          class="h-[30px] w-[35px] shadow inline-block object-cover"
           alt={data.flag_alt}
         />
 
@@ -101,19 +125,23 @@ const data = header_data[lang] ?? header_data.ES;
         </svg>
 
         <ul id="lang-list" class="bg-white shadow-sm hidden rounded-sm">
-          <li>
-            <a
-              class="flex text-xs items-center p-[2px]"
-              href={data.switch_lang.href}
-            >
-              <img
-                src={data.switch_lang.flag}
-                class="h-[30px] mr-1 w-[30px] object-cover"
-                alt={data.switch_lang.alt}
-              />
-              {data.switch_lang.text}
-            </a>
-          </li>
+          {
+            data.switch_lang.map((langOption) => (
+              <li>
+                <a
+                  class="flex text-xs items-center p-[2px]"
+                  href={langOption.href}
+                >
+                  <img
+                    src={langOption.flag}
+                    class="h-[30px] mr-1 w-[30px] object-cover"
+                    alt={langOption.alt}
+                  />
+                  {langOption.text}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </li>
     </ul>
