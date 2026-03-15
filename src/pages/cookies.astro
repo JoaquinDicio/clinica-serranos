@@ -2,9 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout showLegal={false}>
-  <div class="max-w-[400px] mx-auto bg-white p-5 rounded-sm flex flex-col gap-3">
-
+<Layout title="Cookies" showLegal={false}>
+  <div
+    class="max-w-[400px] mx-auto bg-white p-5 rounded-sm flex flex-col gap-3"
+  >
     <p class="font-bold text-xl mb-6 mt-2">Política de Cookies</p>
 
     <p class="text-sm">
@@ -25,18 +26,19 @@ import Layout from "../layouts/Layout.astro";
     <h2 class="font-medium">2. Tipos de cookies utilizadas</h2>
 
     <p class="text-sm">
-      Este sitio web utiliza las siguientes categorías de cookies:
+      Este sitio web utiliza las siguientes categorías de cookies. Las cookies
+      analíticas solo se instalarán si el usuario otorga su consentimiento.
     </p>
 
     <ul class="text-sm list-disc pl-5">
       <li>
-        <b>Cookies técnicas:</b> necesarias para el funcionamiento básico del
-        sitio web.
+        <b>Cookies técnicas:</b> necesarias para el funcionamiento básico del sitio
+        web.
       </li>
 
       <li>
-        <b>Cookies analíticas:</b> permiten analizar el comportamiento de los
-        usuarios en el sitio web con el fin de mejorar nuestros servicios.
+        <b>Cookies analíticas:</b> permiten analizar el comportamiento de los usuarios
+        en el sitio web con el fin de mejorar nuestros servicios.
       </li>
     </ul>
 
@@ -57,16 +59,17 @@ import Layout from "../layouts/Layout.astro";
     </p>
 
     <p class="text-sm">
-      También puede configurar su navegador para bloquear o eliminar las
-      cookies instaladas en su dispositivo.
+      También puede configurar su navegador para bloquear o eliminar las cookies
+      instaladas en su dispositivo.
     </p>
 
     <h2 class="font-medium">5. Más información</h2>
 
     <p class="text-sm">
       Para más información sobre el tratamiento de sus datos personales puede
-      consultar nuestra <a href="/politics" class="underline text-blue-600">Política de Privacidad</a>.
+      consultar nuestra <a href="/privacy" class="underline text-blue-600"
+        >Política de Privacidad</a
+      >.
     </p>
-
   </div>
 </Layout>

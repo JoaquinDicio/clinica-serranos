@@ -25,6 +25,9 @@ const t = {
 const content = t[lang] || t.ES;
 
 const year = new Date().getFullYear();
+
+// prefijo de idioma
+const prefix = lang === "ES" ? "" : `/${lang.toLowerCase()}`;
 ---
 
 <footer class="bg-gray-100 border-t">
@@ -36,15 +39,15 @@ const year = new Date().getFullYear();
     </div>
 
     <div class="flex gap-4 flex-wrap justify-center">
-      <a href="/politics" class="hover:underline">
+      <a href={`${prefix}/legal`} class="hover:underline">
         {content.legal}
       </a>
 
-      <a href="/cookies" class="hover:underline">
+      <a href={`${prefix}/cookies`} class="hover:underline">
         {content.cookies}
       </a>
 
-      <a href="/politics#privacidad" class="hover:underline">
+      <a href={`${prefix}/privacy`} class="hover:underline">
         {content.privacy}
       </a>
     </div>
