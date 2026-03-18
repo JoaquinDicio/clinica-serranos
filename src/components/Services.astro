@@ -2,7 +2,7 @@
 const { lang = "ES" } = Astro.props;
 import ServiceCard from "./ServiceCard.astro";
 import Title from "./Title.astro";
-
+import SliderReviews from "./SliderReviews.astro";
 //assets
 import carillas from "../assets/carillas.jpg";
 import alineadores from "../assets/alineadores.jpg";
@@ -14,6 +14,7 @@ import composite from "../assets/composite.jpg";
 const data = {
     ES: {
         title: "Nuestros servicios",
+        reviewsTitle: "¿Qué opinan de nosotros?",
         text: "En nuestra clínica dental, nos enorgullece ofrecer un cuidado dental personalizado, diseñado para mantener tus dientes en óptimas condiciones y tu sonrisa brillante en todo momento.",
         services: [
             {
@@ -59,6 +60,7 @@ const data = {
     EN: {
         title: "Our services",
         text: "At our dental clinic, we are proud to offer personalized dental care designed to keep your teeth in optimal condition and your smile bright at all times.",
+        reviewsTitle: "What do our patients say about us?",
         services: [
             {
                 photo: carillas,
@@ -103,6 +105,7 @@ const data = {
     RU: {
         title: "Наши услуги",
         text: "В нашей стоматологической клинике мы гордимся тем, что предлагаем индивидуальный стоматологический уход, разработанный для поддержания здоровья ваших зубов и сияния вашей улыбки.",
+        reviewsTitle: "Что о нас говорят пациенты?",
         services: [
             {
                 photo: carillas,
@@ -148,7 +151,7 @@ const data = {
 const t = data[lang] ?? data.ES;
 ---
 
-<section id="servicios" class="pt-[100px] flex flex-col items-center pb-[6rem]">
+<section id="servicios" class="pt-[100px] flex flex-col items-center">
     <Title title={t.title} />
 
     <p class="text-center px-8 py-5 md:max-w-[800px]">
@@ -159,5 +162,15 @@ const t = data[lang] ?? data.ES;
         class="flex flex-wrap gap-3 justify-center max-w-[1024px] items-center"
     >
         {t.services.map((service) => <ServiceCard {...service} />)}
+    </div>
+
+    <div
+        data-aos="fade-up"
+        class="bg-[var(--secondary-color)] w-full px-5 flex flex-col items-center mt-[6rem]"
+    >
+        <p class="text-xl font-bold text-white text-center mt-10">
+            {t.reviewsTitle}
+        </p>
+        <SliderReviews />
     </div>
 </section>
