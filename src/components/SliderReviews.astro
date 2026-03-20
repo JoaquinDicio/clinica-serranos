@@ -1,159 +1,114 @@
 ---
 import { Image } from "astro:assets";
 import Star from "../assets/star-svgrepo-com.svg";
+
 import solange from "../assets/solange.png";
 import marcela from "../assets/marcela.png";
 import agustina from "../assets/agustina.png";
 import anabella from "../assets/anabella.png";
 import carito from "../assets/carito.png";
 import pablo from "../assets/pablo.png";
+import kenichiro from "../assets/kenichiro.png";
+import sasha from "../assets/sasha.png";
+const REVIEWS = [
+  {
+    name: "Solange Franco",
+    image: solange,
+    alt: "foto de solange franco",
+    text: `Mi experiencia en la Clínica Dental Serranos fue Excelente. Desde el
+    momento cero me trataron muy bien, el ambiente es muy agradable y cómodo.
+    El Dr.Alejandro fue extremadamente profesional, amable y atento a cada detalle.
+    Muchas gracias`,
+    rating: 5,
+  },
+  {
+    name: "Marcela Gerbaudo",
+    image: marcela,
+    alt: "foto de marcela",
+    text: `El lugar es muy agradable, con detalles especiales que hacen que la
+    visita sea más amena. La atención tanto de Alejandro como la de los demás
+    chicos es muy familiar tanto en consulta como en seguimiento telefónico.`,
+    rating: 5,
+  },
+  {
+    name: "Kenichiro Nishii",
+    image: kenichiro,
+    alt: "Foto de perfil de Kenichiro Nishii",
+    text: `Had a great experience. Dr. Cordero speaks English very well and he thoroughly explained through treatment options and plans. He also puts importance on preventive care, and it has become my habit to floss after his explanation and advice. Highly recommend him for those in Valencia.`,
+    rating: 5,
+  },
+  {
+    name: "Agustina Mereb Fahey",
+    image: agustina,
+    alt: "foto de agustina",
+    text: `¡Muy buena experiencia en esta Clínica Dental Serranos! Me encanta su
+    enfoque integral, ofrecen una amplia gama de tratamientos para toda la familia.
+    La atención es excepcional.`,
+    rating: 5,
+  },
+  {
+    name: "Anabella Giacomozzi",
+    image: anabella,
+    alt: "foto de anabella",
+    text: `Excelente atención y servicio. He recomendado esta clínica a amigos y
+    la seguiré recomendando. La relación calidad-precio es inmejorable.`,
+    rating: 5,
+  },
+  {
+    name: "Sasha K.",
+    image: sasha,
+    alt: "Foto de perfil de Sasha K.",
+    text: `Fantastic clinic, Dr. Cordero has been very kind, detailed in his explanations, and very professional. The rest of the team was very helpful as well for all other organizational matters. Highly recommended.`,
+    rating: 5,
+  },
+  {
+    name: "Carito Paus",
+    image: carito,
+    alt: "foto de carito paus",
+    text: `Gracias por la buena onda y atención personalizada. Me resolvieron un
+    tema estético urgente y quedé muy conforme. Los recomiendo 100%.`,
+    rating: 5,
+  },
+  {
+    name: "Pablo Gamez",
+    image: pablo,
+    alt: "foto de pablo",
+    text: `Muy profesionales. Solucionaron mi caso rápido y quedó mejor de lo
+    esperado. Los recomiendo 100%.`,
+    rating: 5,
+  },
+];
 ---
 
-<!-- Swiper -->
 <div class="swiper mySwiperReview">
-  <div class="swiper-wrapper mb-20">
-    <div class="swiper-slide">
-      <div class="bg-white rounded text-black py-10 gap-2 px-5 flex flex-col">
-        <div class="flex items-center">
-          <Image
-            src={solange}
-            class="mr-3 w-[50px]"
-            alt="foto de solange franco"
-          />
-          <div>
-            <p class="font-medium">Solange Franco</p>
-            <div class="flex mb-2 w-fit">
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
+  <div class="swiper-wrapper mb-20 items-stretch">
+    {
+      REVIEWS.map((review) => (
+        <div class="swiper-slide !h-auto flex">
+          <div class="bg-white rounded text-black py-10 gap-2 px-5 flex flex-col w-full h-full">
+            <div class="flex items-center">
+              <Image
+                src={review.image}
+                class="mr-3 w-[50px]"
+                alt={review.alt}
+              />
+
+              <div>
+                <p class="font-medium">{review.name}</p>
+
+                <div class="flex mb-2 w-fit">
+                  {Array.from({ length: review.rating }).map(() => (
+                    <Image src={Star} alt="puntuacion" class="w-[15px]" />
+                  ))}
+                </div>
+              </div>
             </div>
+
+            <p class="italic text-sm mt-2 flex-1">"{review.text}"</p>
           </div>
         </div>
-        <p class="italic text-sm mt-2">
-          "Mi experiencia en la Clínica Dental Serranos fue Excelente. Desde el
-          momento cero me trataron muy bien, el ambiente es muy agradable y
-          cómodo. El el Dr.Alejandro fue extremadamente profesional, amable y
-          atento a cada detalle. Muchas gracias"
-        </p>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="bg-white rounded text-black py-10 gap-2 px-5 flex flex-col">
-        <div class="flex items-center">
-          <Image src={marcela} class="mr-3 w-[50px]" alt="foto de marcela" />
-          <div>
-            <p class="font-medium">Marcela Gerbaudo</p>
-            <div class="flex mb-2 w-fit">
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-            </div>
-          </div>
-        </div>
-        <p class="italic text-sm mt-2">
-          "El lugar es muy agradable, con detalles especiales que hacen que la
-          visita sea más amena. La atención tanto de Alejandro como la de los
-          demás chicos más que personalizada yo diría que es muy familiar tanto
-          en consulta como en seguimiento telefónico."
-        </p>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="bg-white rounded text-black py-10 gap-2 px-5 flex flex-col">
-        <div class="flex items-center">
-          <Image src={agustina} class="mr-3 w-[50px]" alt="foto de agustina" />
-          <div>
-            <p class="font-medium">Agustina Mereb Fahey</p>
-            <div class="flex mb-2 w-fit">
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-            </div>
-          </div>
-        </div>
-        <p class="italic text-sm mt-2">
-          "¡Muy buena experiencia en esta Clínica Dental Serranos! Me encanta su
-          enfoque integral, que ofrecen una amplia gama de tratamientos y
-          cuidados para toda la familia. Además, su ubicación es perfecta y es
-          muy fácil llegar. Y la atención al paciente es excepcional."
-        </p>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="bg-white rounded text-black py-10 gap-2 px-5 flex flex-col">
-        <div class="flex items-center">
-          <Image src={anabella} class="mr-3 w-[50px]" alt="foto de anabella" />
-          <div>
-            <p class="font-medium">Anabella Giacomozzi</p>
-            <div class="flex mb-2 w-fit">
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-            </div>
-          </div>
-        </div>
-        <p class="italic text-sm mt-2">
-          "Excelente atención y servicio! He recomendado esta clinica a amigos y
-          la seguire recomendando. La relación calidad-precio es inmejorable! El
-          Dr. Cordero es muy paciente y me ha explicado todo al detalle, estoy
-          muy conforme con el tratamiento."
-        </p>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="bg-white rounded text-black py-10 gap-2 px-5 flex flex-col">
-        <div class="flex items-center">
-          <Image src={carito} class="mr-3 w-[50px]" alt="foto de carito paus" />
-          <div>
-            <p class="font-medium">Carito Paus</p>
-            <div class="flex mb-2 w-fit">
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-            </div>
-          </div>
-        </div>
-        <p class="italic text-sm mt-2">
-          "Gracias chicos por la buena onda y atención personaliza y profesional
-          . Me resolvieron un tema estético y urgente súper importante para mi.
-          Reemplazando unas carillas dentales. Quede muy conforme . Los
-          recomiendo 100%. Gracias !"
-        </p>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="bg-white rounded text-black py-10 gap-2 px-5 flex flex-col">
-        <div class="flex items-center">
-          <Image src={pablo} class="mr-3 w-[50px]" alt="foto de pablo" />
-          <div>
-            <p class="font-medium">Pablo Gamez</p>
-            <div class="flex mb-2 w-fit">
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-              <Image src={Star} alt="puntuacion" class="w-[15px]" />
-            </div>
-          </div>
-        </div>
-        <p class="italic text-sm mt-2">
-          "Gracias chicos por lo profesionales que son para trabajar! Pudieron
-          solucionar mi caso super rápido y quedó mejor de lo que esperaba.
-          Espero cuanto antes comenzar con mi tratamiento de invisibles también.
-          Los recomiendo 100%"
-        </p>
-      </div>
-    </div>
+      ))
+    }
   </div>
 </div>
 
