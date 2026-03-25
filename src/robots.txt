@@ -1,12 +1,4 @@
 User-agent: *
-Disallow: /admin/
-Disallow: /private/
-Disallow: /secret/
-Disallow: /cgi-bin/
-
-User-agent: Googlebot
-Allow: /$
-Allow: /embudo/
-Allow: /index-en
+Allow: /
 
 Sitemap: https://dentalserranos.com/sitemap.xml
