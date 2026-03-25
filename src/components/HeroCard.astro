@@ -9,6 +9,10 @@ const data = {
     text: "En nuestra clínica dental, ofrecemos un cuidado personalizado para mantener tus dientes sanos y tu sonrisa radiante.",
     primary_btn_txt: "Contactar",
     secondary_btn_txt: "Saber más",
+    highlights: [
+      { value: "+280", label: "Sonrisas transformadas" },
+      { value: "4.9⭐", label: "De calificación" },
+    ],
   },
 
   EN: {
@@ -16,6 +20,10 @@ const data = {
     text: "At our dental clinic, we provide personalized care to keep your teeth healthy and your smile radiant.",
     primary_btn_txt: "Contact",
     secondary_btn_txt: "Learn more",
+    highlights: [
+      { value: "+280", label: "smiles transformed" },
+      { value: "4.9⭐", label: "real reviews" },
+    ],
   },
 
   RU: {
@@ -23,6 +31,10 @@ const data = {
     text: "В нашей стоматологической клинике мы предлагаем индивидуальный уход, чтобы сохранить здоровье ваших зубов и красоту вашей улыбки.",
     primary_btn_txt: "Связаться",
     secondary_btn_txt: "Подробнее",
+    highlights: [
+      { value: "+280", label: "преображённых улыбок" },
+      { value: "4.9⭐", label: "реальные отзывы" },
+    ],
   },
 };
 
@@ -34,6 +46,27 @@ const t = data[lang];
   class="flex flex-col bg-white/90 absolute bottom-[-100px] rounded-sm md:rounded-lg py-10 items-center text-center"
 >
   <Title title={t.title} />
+
+  <!-- 🔥 HIGHLIGHTS -->
+  <div class="mt-4 px-4 w-full flex justify-center">
+    <div
+      class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 bg-gray-100/70 border border-gray-200 rounded-full px-4 md:px-6 py-2 text-xs sm:text-sm md:text-base w-fit max-w-[90%] md:max-w-[700px]"
+    >
+      {
+        t.highlights.map((item, index) => (
+          <>
+            <span class="flex items-center gap-1">
+              <span class="font-semibold text-primary">{item.value}</span>
+              <span class="text-gray-600">{item.label}</span>
+            </span>
+            {index < t.highlights.length - 1 && (
+              <span class="hidden sm:inline text-gray-300">|</span>
+            )}
+          </>
+        ))
+      }
+    </div>
+  </div>
 
   <p class="px-8 md:max-w-[800px] pt-5">
     {t.text}
@@ -54,3 +87,9 @@ const t = data[lang];
     />
   </nav>
 </div>
+
+<style>
+  .highlight {
+    font-size: 0.5rem;
+  }
+</style>
