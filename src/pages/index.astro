@@ -43,24 +43,22 @@ const t = seo[lang] ?? seo.ES;
 ---
 
 <Layout lang={lang} title={t.title} description={t.description}>
+  <Header lang={lang} />
+
   <main>
-    <Header lang={lang} />
+    <Home lang={lang} />
 
-    <main>
-      <Home lang={lang} />
+    <AboutUs lang={lang} />
 
-      <AboutUs lang={lang} />
+    <Divider lang={lang} />
 
-      <Divider lang={lang} />
+    <Services lang={lang} />
 
-      <Services lang={lang} />
+    <Workflow lang={lang} />
 
-      <Workflow lang={lang} />
+    <Works lang={lang} />
 
-      <Works lang={lang} />
-
-      <Contact lang={lang} />
-    </main>
+    <Contact lang={lang} />
   </main>
 
   <Footer lang={lang} />
