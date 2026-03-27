@@ -65,38 +65,51 @@ const t = translations[lang] || translations.ES;
 <script is:inline>
   const banner = document.getElementById("cookie-banner");
 
-  function loadGTM() {
-    if (document.querySelector('script[src*="googletagmanager.com/gtm.js"]')) {
-      return;
-    }
+  const consent = localStorage.getItem("cookie-consent");
 
-    const gtmScript = document.createElement("script");
-
-    gtmScript.innerHTML = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T6F4VGFC');`;
-
-    document.head.appendChild(gtmScript);
-  }
-
-  if (localStorage.getItem("cookie-consent")) {
+  if (consent) {
     banner.classList.add("hidden");
 
-    if (localStorage.getItem("cookie-consent") === "accepted") {
-      loadGTM();
+    if (consent === "accepted") {
+      gtag("consent", "update", {
+        analytics_storage: "granted",
+        ad_storage: "granted",
+        ad_user_data: "granted",
+        ad_personalization: "granted",
+      });
+    }
+
+    if (consent === "rejected") {
+      gtag("consent", "update", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+      });
     }
   }
 
   document.getElementById("accept-cookies").addEventListener("click", () => {
     localStorage.setItem("cookie-consent", "accepted");
     banner.classList.add("hidden");
-    loadGTM();
+
+    gtag("consent", "update", {
+      analytics_storage: "granted",
+      ad_storage: "granted",
+      ad_user_data: "granted",
+      ad_personalization: "granted",
+    });
   });
 
   document.getElementById("reject-cookies").addEventListener("click", () => {
     localStorage.setItem("cookie-consent", "rejected");
     banner.classList.add("hidden");
+
+    gtag("consent", "update", {
+      analytics_storage: "denied",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+    });
   });
 </script>
