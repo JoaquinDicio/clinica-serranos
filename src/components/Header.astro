@@ -1,5 +1,8 @@
 ---
-const { lang } = Astro.props;
+interface Props {
+  lang?: "ES" | "EN" | "RU";
+}
+const { lang = "ES" } = Astro.props;
 
 const header_data = {
   ES: {
@@ -148,7 +151,7 @@ const data = header_data[lang] ?? header_data.ES;
   </nav>
 </header>
 
-<script>
+<script is:inline>
   const showMenuBtn = document.getElementById("showMenuBtn");
   showMenuBtn.addEventListener("click", () =>
     document.getElementById("headerNavbar").classList.toggle("hidden"),
