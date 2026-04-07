@@ -1,7 +1,9 @@
 ---
+interface Props {
+    lang?: "RU" | "EN" | "ES";
+}
 const { lang = "ES" } = Astro.props;
 import ProceduresSlider from "./ProceduresSlider.astro";
-import SliderReviews from "./SliderReviews.astro";
 import Title from "./Title.astro";
 
 const data = {
@@ -59,7 +61,8 @@ const t = data[lang] ?? data.ES;
 
         <a
             href="https://www.instagram.com/clinicadentalserranos/"
-            class="rounded-full border-white border-2 mt-5 py-2 px-3 text-center uppercase"
+            target="_blank"
+            class="rounded-full border-white border-2 mt-5 gtag-trigger py-2 px-3 text-center uppercase"
         >
             {t.instagram}
         </a>
@@ -78,7 +81,7 @@ const t = data[lang] ?? data.ES;
             <a
                 href="https://wa.me/message/R5MXKI5CQE23F1"
                 target="_blank"
-                class="rounded-full text-white bg-[var(--secondary-color)] uppercase font-medium px-12 my-7 py-2"
+                class="gtag-trigger rounded-full text-white bg-[var(--secondary-color)] uppercase font-medium px-12 my-7 py-2"
             >
                 {t.contact}
             </a>

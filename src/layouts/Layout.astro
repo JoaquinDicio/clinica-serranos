@@ -1,4 +1,11 @@
 ---
+interface Props {
+  title: string;
+  description: string;
+  lang?: "EN" | "ES" | "RU";
+  showLegal?: boolean;
+}
+
 const {
   title,
   description = "description",
@@ -8,6 +15,7 @@ const {
 
 import Whatsapp from "../components/Whatsapp.astro";
 import CookiesAgreement from "../components/CookiesAgreement.astro";
+import { boolean, string } from "astro:schema";
 
 const translations = {
   ES: {

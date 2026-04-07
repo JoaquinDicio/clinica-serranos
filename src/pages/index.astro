@@ -68,12 +68,21 @@ const t = seo[lang] ?? seo.ES;
 
 <script is:inline>
   const triggers = document.querySelectorAll(".gtag-trigger");
-  triggers.forEach((t) =>
+
+  triggers.forEach((t) => {
+    t.removeAttribute("aria-hidden");
+
+    let event_name = "click_whatsapp";
+
+    const is_instagram = t.href.split(".").includes("instagram");
+
+    if (is_instagram) event_name = "click_instagram";
+
     t.addEventListener("click", () => {
-      gtag("event", "click_whatsapp", {
+      gtag("event", event_name, {
         event_category: "contact",
         event_label: "floating_button",
       });
-    }),
-  );
+    });
+  });
 </script>

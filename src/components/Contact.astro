@@ -1,4 +1,7 @@
 ---
+interface Props {
+    lang?: "ES" | "EN" | "RU";
+}
 const { lang = "ES" } = Astro.props;
 import Title from "./Title.astro";
 
@@ -39,12 +42,21 @@ const t = data[lang] ?? data.ES;
     <div class="flex justify-center mt-10 px-10">
         <a
             href="https://www.instagram.com/clinicadentalserranos/"
-            class="fa-brands fa-instagram text-[var(--main-color)] mr-4 text-5xl"
-        ></a>
+            target="_blank"
+            rel="noopener"
+            class="gtag-trigger text-[var(--main-color)] mr-4 text-5xl"
+            aria-label="Instagram"
+        >
+            <i class="fa-brands fa-instagram"></i>
+        </a>
         <a
             href="https://wa.me/message/R5MXKI5CQE23F1"
+            class="gtag-trigger text-[var(--main-color)] text-5xl"
+            aria-label="WhatsApp"
             target="_blank"
-            class="fa-brands fa-whatsapp text-[var(--main-color)] text-5xl"></a>
+        >
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
     </div>
 
     <div class="bg-[var(--main-color)] h-full pb-20 rounded-t-[25px]">
