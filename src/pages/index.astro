@@ -14,7 +14,9 @@ import Contact from "../components/Contact.astro";
 
 const path = Astro.url.pathname;
 
-let lang = "ES";
+type Lang = "ES" | "RU" | "EN";
+
+let lang: Lang = "ES";
 
 if (path.startsWith("/en")) lang = "EN";
 if (path.startsWith("/ru")) lang = "RU";
