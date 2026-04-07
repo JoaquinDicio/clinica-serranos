@@ -4,10 +4,9 @@ import WhatsappIcon from "../assets/whatsapp.svg";
 ---
 
 <a
-  id="whatsapp-btn"
   target="_blank"
   href="https://wa.me/message/R5MXKI5CQE23F1"
-  class="cursor-pointer fixed bottom-5 right-5"
+  class="cursor-pointer fixed bottom-5 right-5 gtag-trigger"
 >
   <Image
     src={WhatsappIcon}
@@ -15,12 +14,3 @@ import WhatsappIcon from "../assets/whatsapp.svg";
     class="w-[70px] h-[70px] z-10"
   />
 </a>
-
-<script is:inline>
-  document.getElementById("whatsapp-btn")?.addEventListener("click", () => {
-    gtag("event", "click_whatsapp", {
-      event_category: "contact",
-      event_label: "floating_button",
-    });
-  });
-</script>

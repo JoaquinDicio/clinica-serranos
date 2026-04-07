@@ -1,4 +1,7 @@
 ---
+interface Props {
+  lang?: "ES" | "EN" | "RU";
+}
 const { lang = "ES" } = Astro.props;
 import Title from "./Title.astro";
 import Anchord from "./Anchord.astro";
@@ -76,6 +79,7 @@ const t = data[lang];
     <Anchord
       text={t.primary_btn_txt}
       variant="primary"
+      trigger="gtag-trigger"
       href="https://wa.me/message/R5MXKI5CQE23F1"
     />
 
