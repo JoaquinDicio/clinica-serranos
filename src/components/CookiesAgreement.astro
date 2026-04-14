@@ -63,53 +63,54 @@ const t = translations[lang] || translations.ES;
 </div>
 
 <script is:inline>
-  const banner = document.getElementById("cookie-banner");
+  document.addEventListener("DOMContentLoaded", () => {
+    const banner = document.getElementById("cookie-banner");
+    const consent = localStorage.getItem("cookie-consent");
 
-  const consent = localStorage.getItem("cookie-consent");
+    if (consent) {
+      banner.classList.add("hidden");
 
-  if (consent) {
-    banner.classList.add("hidden");
+      if (consent === "accepted") {
+        gtag("consent", "update", {
+          analytics_storage: "granted",
+          ad_storage: "granted",
+          ad_user_data: "granted",
+          ad_personalization: "granted",
+        });
+      }
 
-    if (consent === "accepted") {
+      if (consent === "rejected") {
+        gtag("consent", "update", {
+          analytics_storage: "denied",
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+        });
+      }
+    }
+
+    document.getElementById("accept-cookies").addEventListener("click", () => {
+      localStorage.setItem("cookie-consent", "accepted");
+      banner.classList.add("hidden");
+
       gtag("consent", "update", {
         analytics_storage: "granted",
         ad_storage: "granted",
         ad_user_data: "granted",
         ad_personalization: "granted",
       });
-    }
+    });
 
-    if (consent === "rejected") {
+    document.getElementById("reject-cookies").addEventListener("click", () => {
+      localStorage.setItem("cookie-consent", "rejected");
+      banner.classList.add("hidden");
+
       gtag("consent", "update", {
         analytics_storage: "denied",
         ad_storage: "denied",
         ad_user_data: "denied",
         ad_personalization: "denied",
       });
-    }
-  }
-
-  document.getElementById("accept-cookies").addEventListener("click", () => {
-    localStorage.setItem("cookie-consent", "accepted");
-    banner.classList.add("hidden");
-
-    gtag("consent", "update", {
-      analytics_storage: "granted",
-      ad_storage: "granted",
-      ad_user_data: "granted",
-      ad_personalization: "granted",
-    });
-  });
-
-  document.getElementById("reject-cookies").addEventListener("click", () => {
-    localStorage.setItem("cookie-consent", "rejected");
-    banner.classList.add("hidden");
-
-    gtag("consent", "update", {
-      analytics_storage: "denied",
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied",
     });
   });
 </script>
